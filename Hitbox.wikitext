@@ -1,0 +1,91 @@
+{{i18n header}}
+{{i18n
+|en=
+Hitbox (aka collision box) is geometry used for collision detection. In LuaSTG, a hitbox is always attached to a game object.
+
+* There are three parameters for a hitbox: '''a''', '''b''' and shape. They correspond to '''a''', '''b''' and '''rect''' property of game object.
+|zh=
+碰撞盒（又称碰撞体）是用于碰撞检测的几何体。在LuaSTG中，碰撞盒总是附于游戏对象上。
+
+* 碰撞盒具有三个参数：'''a'''，'''b''' 和形状，分别对应游戏对象的 '''a'''，'''b''' 和 '''rect''' 属性。
+}}
+<h2>{{i18n
+|en=Engines other than LuaSTG-x
+|zh=LuaSTG-x以外的引擎
+}}</h2>
+{{i18n
+|en=
+In engines other than LuaSTG-x, hitbox can be following shapes:
+|zh=
+在LuaSTG-x以外的引擎中，碰撞盒可以为以下形状：
+}}
+<gallery mode=packed heights=150px style="text-align:left">
+File:hitbox_circle.svg|{{i18n|en=Circle|zh=圆形}}
+File:hitbox_rectangle.svg|{{i18n|en=Rectangle|zh=矩形}}
+</gallery>
+{{i18n
+|en=
+Green arrow indicates orientation of game object, which is '''rot''' property.
+
+* When '''rect''' property is (set to) '''false''', shape of hitbox will be circle.
+* When '''rect''' property is (set to) '''true''', shape of hitbox will be rectangle.
+|zh=
+其中绿色箭头表示游戏对象的朝向，即 '''rot''' 属性。
+
+* 当 '''rect''' 属性为 '''false''' 时，对应圆形碰撞盒。
+* 当 '''rect''' 属性为 '''true''' 时，对应矩形碰撞盒。
+}}
+<h2>LuaSTG-x</h2>
+{{i18n
+|en=
+In LuaSTG-x, hitbox can be following shapes:
+|zh=
+在LuaSTG-x中，碰撞盒可以为以下形状：
+}}
+<gallery mode=packed heights=150px style="text-align:left">
+File:hitbox_circle_x.svg|{{i18n|en=Circle|zh=圆形}}
+File:hitbox_rectangle.svg|{{i18n|en=Rectangle|zh=矩形}}
+File:hitbox_ellipse.svg|{{i18n|en=Ellipse|zh=椭圆}}
+File:hitbox_diamond.svg|{{i18n|en=Diamond|zh=菱形}}
+File:hitbox_triangle.svg|{{i18n|en=Triangle|zh=三角形}}
+File:hitbox_point.svg|{{i18n|en=Point|zh=点}}
+</gallery>
+{{i18n
+|en=<p></p>
+
+* '''a''' property and '''b''' property can not be negative number, or the engine will throw an error.
+* When '''rect''' property is assigned with a boolean value, the behavior is same as other engines.
+* When '''rect''' property is assigned with a number value or a string value, the shape will be set according to following table: 
+|zh=<p></p>
+
+* '''a''' 属性和 '''b''' 属性不能为负数，否则引擎会抛出错误。
+* 当 '''rect''' 属性被设置为布尔值时，行为与其他引擎相同。
+* 当 '''rect''' 属性被设置为数字或字符串值时，将按照下表设置碰撞盒形状。
+}}
+{| class="wikitable"
+!ID
+!{{i18n|en=String|zh=字符串}}
+!{{i18n|en=Shape|zh=形状}}
+|-
+|0||"circle"||{{i18n|en=Circle|zh=圆形}}
+|-
+|1||"obb"||{{i18n|en=Rectangle|zh=矩形}}
+|-
+|2||"ellipse"||{{i18n|en=Ellipse|zh=椭圆}}
+|-
+|3||"diamond"||{{i18n|en=Diamond|zh=菱形}}
+|-
+|4||"triangle"||{{i18n|en=Triangle|zh=三角形}}
+|-
+|5||"point"||{{i18n|en=Point|zh=点}}
+|}
+{{i18n
+|en=<p></p>
+
+* When shape of hitbox is cirlce, '''rect''' property will return '''false'''. This is for compatibility.
+* When shape of hitbox is not cirlce, '''rect''' property will return ID of the shape.
+|zh=<p></p>
+
+* 出于兼容性考虑，当碰撞盒形状为圆形时，读取 '''rect''' 属性时返回 '''false'''。
+* 当碰撞盒形状不为圆形时，读取 '''rect''' 属性时返回对应ID。
+}}

@@ -10,6 +10,7 @@ This page lists pages about features of LuaSTG engines.
 |en=<p></p>
 
 * [[Game Object]]
+* [[Hitbox]]
 * [[Bent Laser]]
 * [[Blend Mode]]
 * [[Render Mode]]
@@ -19,6 +20,7 @@ This page lists pages about features of LuaSTG engines.
 |zh=<p></p>
 
 * [[Game Object|游戏对象]]
+* [[Hitbox|碰撞盒]]
 * [[Bent Laser|曲线激光]]
 * [[Blend Mode|混合模式]]
 * [[Render Mode|渲染模式]]

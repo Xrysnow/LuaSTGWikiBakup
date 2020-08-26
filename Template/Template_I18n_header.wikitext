@@ -1,0 +1,5 @@
+<includeonly><div class="i8n-header" style="text-align: center;"><!--
+-->[{{fullurl:{{PAGENAME}}}}?uselang=en {{#language:en}}]<!--
+--> • [{{fullurl:{{PAGENAME}}}}?uselang=zh {{#language:zh}}]<!--
+--> • [{{fullurl:{{PAGENAME}}}}?uselang=ja {{#language:ja}}] <!--
+--></div></includeonly><noinclude>{{i18n header}}</noinclude>

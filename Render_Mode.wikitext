@@ -1,0 +1,50 @@
+{{i18n header}}
+{{FeatureInfo
+| Type = Graphics
+| Version = LuaSTG-x
+}}
+{{i18n
+|en=
+Render mode is a substitute for [[Blend Mode|blend mode]] in LuaSTGPlus. It consists of two parts: one part is a shader program, the other part specifies how fragments blend with the buffer. This changs happens because LuaSTG-x uses programmable pipline instead of fixed pipline.
+
+The engine provides several render modes, they can be specified by name. Custom render modes can also be created.
+
+;Engine-provided render modes
+|zh=
+渲染模式是LuaSTGPlus中[[Blend Mode|混合模式]]的替代。包含两部分：一部分为着色器程序，另一部分指定片段如何与缓冲区混合。发生这一改变的原因是LuaSTG-x使用了可编程渲染管线而非固定管线。
+
+引擎提供了若干渲染模式，使用时以名称进行指定。用户也可创建自定义渲染模式。
+
+;引擎提供的混合模式
+}}
+{| class="wikitable"
+! style="text-align: left;" | {{i18n|en=Name|zh=名称}}
+! {{i18n|en=Description|zh=描述}}
+|-
+|""
+|{{i18n|en=Equals to "mul+alpha", default mode|zh=等同于 "mul+alpha"，默认模式}}
+|-
+|"mul+add"
+|{{i18n|en=Multiplication for vertex color, addition for blend|zh=顶点颜色使用乘法，混合使用加法}}
+|-
+|"mul+alpha"
+|{{i18n|en=Multiplication for vertex color, alpha for blend|zh=顶点颜色使用乘法，混合使用alpha}}
+|-
+|"mul+sub"
+|{{i18n|en=Multiplication for vertex color, subtraction for blend|zh=顶点颜色使用乘法，混合使用减法}}
+|-
+|"mul+rev"
+|{{i18n|en=Multiplication for vertex color, reverse subtraction for blend|zh=顶点颜色使用乘法，混合使用反向减法}}
+|-
+|"add+add"
+|{{i18n|en=Addition for vertex color, addition for blend|zh=顶点颜色使用加法，混合使用加法}}
+|-
+|"add+alpha"
+|{{i18n|en=Addition for vertex color, alpha for blend|zh=顶点颜色使用加法，混合使用alpha}}
+|-
+|"add+sub"
+|{{i18n|en=Addition for vertex color, subtraction for blend|zh=顶点颜色使用加法，混合使用减法}}
+|-
+|"add+rev"
+|{{i18n|en=Addition for vertex color, reverse subtraction for blend|zh=顶点颜色使用加法，混合使用反向减法}}
+|}

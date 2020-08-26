@@ -1,0 +1,288 @@
+This page lists functions of LuaSTG editors. Target editors are [[LuaSTG Editor (legacy)]] Er+1.02 and [[LuaSTG Editor Sharp]] 0.7.0.0. '''BulletEx''' group of legacy editor is not listed since it's deprecated.
+
+== General [[File:Folder.png]] ==
+
+{{EditorNode|Name=Folder|Icon=Folder.png}}
+
+{{EditorNode|Name=Code|Icon=Code.png}}
+
+{{EditorNode|Name=Code Segment|Icon=Codesegment.png}} (Editor Sharp)
+
+{{EditorNode|Name=Comment|Icon=Comment.png}}
+
+{{EditorNode|Name=If|Icon=if.png}}
+
+{{EditorNode|Name=Else If|Icon=Elseif.png}} (Editor Sharp)
+
+{{EditorNode|Name=Repeat|Icon=Repeat.png}}
+
+{{EditorNode|Name=Code Block|Icon=Codeblock.png}}
+
+{{EditorNode|Name=Break|Icon=Break.png}} (Named '''Jump''' in legacy editor)
+
+{{EditorNode|Name=Patch|Icon=Patch.png}}
+
+{{EditorNode|Name=Add File|Icon=Pack.png}} (Editor Sharp)
+
+{{EditorNode|Name=Region|Icon=Region.png}} (Editor Sharp)
+
+{{EditorNode|Name=Define Macro|Icon=Definemacro.png}} (Editor Sharp)
+
+{{EditorNode|Name=Archive Space|Icon=Archispace.png}} (Editor Sharp)
+
+{{EditorNode|Name=User Defined Node|Icon=UserdefinedNode.png}} (Editor Sharp)
+
+{{EditorNode|Name=Unidentified Node|Icon=UnidentifiedNode.png}} (Editor Sharp)
+
+== Advanced [[File:Advancedrepeat.png]] ==
+
+{{EditorNode|Name=Advanced Repeat|Page=Advanced Repeat (Editor Sharp)|Icon=Advancedrepeat.png}} (Editor Sharp)
+
+{{EditorNode|Name=Increment Variable
+|Page=Advanced_Repeat_(Editor_Sharp)#Increment Variable Node
+|Icon=LinearVariable.png}} (Editor Sharp)
+
+{{EditorNode|Name=Linear Variable
+|Page=Advanced_Repeat_(Editor_Sharp)#Linear Variable Node
+|Icon=LinearVariable.png}} (Editor Sharp)
+
+{{EditorNode|Name=Sinusoidal Interpolation Variable
+|Page=Advanced_Repeat_(Editor_Sharp)#Sinusoidal Interpolation Variable Node
+|Icon=SinusoidalInterpolationVariable.png}} (Editor Sharp)
+
+{{EditorNode|Name=Sinusoidal Movement Variable
+|Page=Advanced_Repeat_(Editor_Sharp)#Sinusoidal Movement Variable Node
+|Icon=SinusoidalMovementVariable.png}} (Editor Sharp)
+
+{{EditorNode|Name=Rebounding Variable
+|Page=Advanced_Repeat_(Editor_Sharp)#Rebounding Variable Node
+|Icon=ReboundingVariable.png}} (Editor Sharp)
+
+{{EditorNode|Name=Sinusoidal Oscillation Variable
+|Page=Advanced_Repeat_(Editor_Sharp)#Sinusoidal Oscillation Variable Node
+|Icon=SinusoidalOscillationVariable.png}} (Editor Sharp)
+
+{{EditorNode|Name=Task Advanced Repeat
+|Icon=Taskadvancedrepeat.png}} (Editor Sharp)
+
+== Data [[File:Variable.png]] ==
+
+{{EditorNode|Name=Local Variable|Icon=Variable.png}} (Named '''Define Variable''' in legacy editor)
+
+{{EditorNode|Name=Assignment|Icon=Assignment.png}} (Editor Sharp)
+
+{{EditorNode|Name=Function|Icon=Func.png}} (Editor Sharp)
+
+{{EditorNode|Name=Record Position|Icon=PositionVar.png}} (Editor Sharp)
+
+{{EditorNode|Name=Position Assignment|Icon=Positionassignment.png}} (Editor Sharp)
+
+== Stage [[File:Stage.png]] ==
+
+{{EditorNode|Name=Stage Group|Icon=Stagegroup.png}}
+
+{{EditorNode|Name=Stage|Icon=Stage.png}}
+
+{{EditorNode|Name=Go to Stage|Icon=Stagegoto.png}}
+
+{{EditorNode|Name=Finish Stage|Icon=Stagefinish.png}} (Removed in Editor Sharp)
+
+{{EditorNode|Name=Finish Stage Group|Icon=Stagefinishgroup.png}}
+
+{{EditorNode|Name=Set Stage Background|Icon=Bgstage.png}}
+
+{{EditorNode|Name=Shake Screen|Icon=Shakescreen.png}} (At group '''Effect''' in legacy editor)
+
+== Task [[File:Task.png]] ==
+
+{{EditorNode|Name=Task|Icon=Task.png}}
+
+{{EditorNode|Name=Tasker|Icon=Tasker.png}}
+
+{{EditorNode|Name=Define Task|Icon=taskdefine.png}} (Editor Sharp)
+
+{{EditorNode|Name=Create Task|Icon=taskattach.png}} (Editor Sharp)
+
+{{EditorNode|Name=Finish Task|Icon=Taskreturn.png}} (Named '''Terminate Task''' in legacy editor)
+
+{{EditorNode|Name=Clear Task|Icon=Taskclear.png}}
+
+{{EditorNode|Name=Wait|Icon=Taskwait.png}}
+
+{{EditorNode|Name=Task Repeat|Icon=Taskrepeat.png}} (Icon is [[File:Repeat.png]] in legacy editor)
+
+{{EditorNode|Name=Move To|Icon=Taskmoveto.png}}
+
+{{EditorNode|Name=Move To by Bezier Curve|Icon=TaskBeziermoveto.png}}
+
+{{EditorNode|Name=Move By|Icon=Taskmovetoex.png}} (Editor Sharp)
+
+{{EditorNode|Name=Move To (Curve)|Icon=TaskBeziermoveto.png}} (Editor Sharp)
+
+{{EditorNode|Name=Move By (Curve)|Icon=TaskBeziermovetoex.png}} (Editor Sharp)
+
+{{EditorNode|Name=Smooth Set Value To|Icon=Tasksetvalue.png}} (Editor Sharp)
+
+== Enemy [[File:Enemydefine.png]] ==
+
+{{EditorNode|Name=Define Enemy|Icon=Enemydefine.png}}
+
+{{EditorNode|Name=Create Enemy|Icon=Enemycreate.png}}
+
+{{EditorNode|Name=Create Simple Enemy with Task|Icon=Enemysimple.png}}
+
+{{EditorNode|Name=Enemy Charge|Icon=Pactrometer.png}} (Editor Sharp) (Replace '''Boss Pactrometer''' of legacy editor)
+
+{{EditorNode|Name=Enemy Wander|Icon=Taskbosswander.png}} (Editor Sharp) (Replace '''Boss Wander''' of legacy editor)
+
+== Boss [[File:Bossdefine.png]] ==
+
+{{EditorNode|Name=Define Boss|Icon=Bossdefine.png}}
+
+{{EditorNode|Name=Spell Card|Icon=Bossspellcard.png}}
+
+{{EditorNode|Name=Create Boss|Icon=Bosscreate.png}}
+
+{{EditorNode|Name=Set Walk Image|Icon=Bosswalkimg.png}} (Editor Sharp)
+
+{{EditorNode|Name=Boss Move To|Icon=Bossmoveto.png}}
+
+{{EditorNode|Name=Dialogue|Page=Dialogues|Icon=Dialog.png}}
+
+{{EditorNode|Name=Sentence|Icon=Sentence.png}}
+
+{{EditorNode|Name=Boss Wander|Icon=Taskbosswander.png}} (Named '''Enemy Wander''' in Editor Sharp)
+
+{{EditorNode|Name=Boss Cast|Icon=Bosscast.png}} (Named '''Play Cast Animation''' in Editor Sharp)
+
+{{EditorNode|Name=Boss Explode|Icon=Bossexplode.png}}
+
+{{EditorNode|Name=Boss Aura|Icon=Bossshowaura.png}}
+
+{{EditorNode|Name=Set Boss UI|Icon=Bosssetui.png}} (Editor Sharp)
+
+{{EditorNode|Name=Boss Pactrometer|Icon=Pactrometer.png}} (Replaced by '''Enemy Charge''' in Editor Sharp)
+
+{{EditorNode|Name=Define Boss Background|Icon=Bgdefine.png}}
+
+{{EditorNode|Name=Define Boss Background Layer|Icon=Bglayer.png}}
+
+== Bullet [[File:Bulletcreatestraightex.png]] ==
+
+{{EditorNode|Name=Define Bullet|Icon=Bulletdefine.png}}
+
+{{EditorNode|Name=Create Bullet|Icon=Bulletcreate.png}}
+
+{{EditorNode|Name=Create Simple Bullet|Icon=Bulletcreatestraight.png}}
+
+{{EditorNode|Name=Create Simple Bullet Group|Icon=Bulletcreatestraightex.png}}
+
+{{EditorNode|Name=Change Bullet Style|Icon=Bulletchangestyle.png}}
+
+{{EditorNode|Name=Clear Bullets|Icon=Bulletclear.png}}
+
+{{EditorNode|Name=Clear Bullets in Range|Icon=Bulletcleanrange.png}}
+
+== Laser [[File:laserdefine.png]] ==
+
+{{EditorNode|Name=Define Laser|Icon=laserdefine.png}}
+
+{{EditorNode|Name=Create Laser|Icon=lasercreate.png}}
+
+{{EditorNode|Name=Define Bent Laser|Icon=laserbentdefine.png}}
+
+{{EditorNode|Name=Create Bent Laser|Icon=laserbentcreate.png}}
+
+{{EditorNode|Name=Turn Half On Laser|Icon=laserturnhalfon.png}}
+
+{{EditorNode|Name=Turn On Laser|Icon=laserturnon.png}}
+
+{{EditorNode|Name=Turn Off Laser|Icon=laserturnoff.png}}
+
+{{EditorNode|Name=Grow Laser|Icon=lasergrow.png}}
+
+{{EditorNode|Name=Change Laser Style|Icon=laserchangestyle.png}} (Icon is [[File:laserchange.png]] in legacy editor)
+
+== Object [[File:objectdefine.png]] ==
+
+* Group '''Unit''' of legacy editor is merged into '''Object''' in Editor Sharp.
+
+{{EditorNode|Name=Define Object|Icon=objectdefine.png}}
+
+{{EditorNode|Name=Create Object|Icon=objectcreate.png}}
+
+{{EditorNode|Name=Call Back Functions|Icon=callbackfunc.png}}
+
+{{EditorNode|Name=Default Action|Icon=defaultaction.png}}
+
+{{EditorNode|Name=Set Velocity|Icon=setv.png}}
+
+{{EditorNode|Name=Set Acceleration|Icon=setaccel.png}}
+
+{{EditorNode|Name=Set Gravity|Icon=setgravity.png}}
+
+{{EditorNode|Name=Set Velocity Limit|Icon=setfv.png}}
+
+{{EditorNode|Name=Delete Unit|Icon=unitdel.png}}
+
+{{EditorNode|Name=Kill Unit|Icon=unitkill.png}}
+
+{{EditorNode|Name=Set Image|Icon=objectsetimg.png}}
+
+{{EditorNode|Name=Set Color and Blend Mode|Icon=setcolor.png}}
+
+{{EditorNode|Name=Set Parent|Icon=connect.png}}
+
+{{EditorNode|Name=Set Relative Position|Icon=setrelpos.png}}
+
+{{EditorNode|Name=Create Smear|Icon=smear.png}} (At group '''Effect''' in legacy editor)
+
+{{EditorNode|Name=Drop Item|Icon=dropitem.png}} (At group '''Effect''' in legacy editor)
+
+{{EditorNode|Name=For Each Unit in Group|Icon=unitforeach.png}}
+
+== Graphics [[File:loadimage.png]] ==
+
+{{EditorNode|Name=Load Image|Icon=loadimage.png}}
+
+{{EditorNode|Name=Load Image Group|Icon=loadimagegroup.png}}
+
+{{EditorNode|Name=Load Particle|Icon=loadparticle.png}}
+
+{{EditorNode|Name=Load Animation|Icon=loadani.png}}
+
+{{EditorNode|Name=Load FX|Icon=loadFX.png}} (At group '''Effect''' in legacy editor, icon is [[File:loadFX_legacy.png]])
+
+{{EditorNode|Name=Load Texture|Icon=loadtexture.png}} (Removed in Editor Sharp)
+
+{{EditorNode|Name=Render Image|Icon=renderimage.png}} (Removed in Editor Sharp)
+
+== Audio [[File:playsound.png]] ==
+
+{{EditorNode|Name=Load Sound Effect|Icon=loadsound.png}}
+
+{{EditorNode|Name=Play Sound Effect|Icon=playsound.png}}
+
+{{EditorNode|Name=Load Background Music|Icon=loadbgm.png}}
+
+{{EditorNode|Name=Play Background Music|Icon=playbgm.png}}
+
+{{EditorNode|Name=Pause Background Music|Icon=pausebgm.png}}
+
+{{EditorNode|Name=Resume Background Music|Icon=resumebgm.png}}
+
+{{EditorNode|Name=Stop Background Music|Icon=stopbgm.png}}
+
+== Render [[File:render4v.png]] ==
+
+{{EditorNode|Name=On Render|Icon=onrender.png}} (Editor Sharp)
+
+{{EditorNode|Name=Render4V|Icon=render4v.png}} (Editor Sharp)
+
+{{EditorNode|Name=Create Render Target|Icon=CreateRenderTarget.png}} (Editor Sharp)
+
+{{EditorNode|Name=Push/Pop Render Target|Icon=RenderTarget.png}} (Editor Sharp)
+
+{{EditorNode|Name=Post Effect|Icon=PostEffect.png}} (Editor Sharp)
+
+{{Template:Navbox LFunctions}}

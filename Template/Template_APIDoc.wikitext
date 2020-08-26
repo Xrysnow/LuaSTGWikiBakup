@@ -1,0 +1,55 @@
+<includeonly><!--
+-->===== {{{Name}}}({{{P1|}}}{{#if: {{{P2|}}}|, {{{P2}}}}}{{#if: {{{P3|}}}|, {{{P3}}}}}{{#if: {{{P4|}}}|, {{{P4}}}}}{{#if: {{{P5|}}}|, {{{P5}}}}}{{#if: {{{P6|}}}|, {{{P6}}}}}{{#if: {{{P7|}}}|, {{{P7}}}}}{{#if: {{{P8|}}}|, {{{P8}}}}}{{#if: {{{P9|}}}|, {{{P9}}}}}) =====
+<!--
+
+--><small><!--
+
+-->{{#if: {{{Ver|}}}|<!--
+    -->{{#ifeq: {{{Ver|}}}|+|<!--
+        -->[P]<!--
+        -->|<!--
+        -->{{#ifeq: {{{Ver|}}}|x|<!--
+            -->[X]<!--
+            -->|<!--
+            -->[P] [X]<!--
+        -->}}<!--
+    -->}}<!--
+    -->|<!--
+    -->[P] [X]<!--
+-->}}<!--
+
+-->{{#if:{{{Member|}}}||&nbsp;[static]}}<!--
+-->{{#if:{{{Dep|}}}|&nbsp;[deprecated in X]}}<!--
+-->{{#if:{{{Del|}}}|&nbsp;[deleted in X]}}<!--
+
+--></small><br/><!--
+-->{{#if: {{{Desc|}}}|{{{Desc}}}}}<!--
+-->{{#if: {{{P1|}}}|<p></p>
+{{i18n|tag=b|en=Parameters|zh=参数}}:}}<!--
+--><table class="api-param"><!--
+-->{{#if: {{{P1|}}}|<tr><td class="api-paramname">'''{{{P1}}}'''</td><td>{{{D1|}}}</td></tr>}}<!--
+-->{{#if: {{{P2|}}}|<tr><td class="api-paramname">'''{{{P2}}}'''</td><td>{{{D2|}}}</td></tr>}}<!--
+-->{{#if: {{{P3|}}}|<tr><td class="api-paramname">'''{{{P3}}}'''</td><td>{{{D3|}}}</td></tr>}}<!--
+-->{{#if: {{{P4|}}}|<tr><td class="api-paramname">'''{{{P4}}}'''</td><td>{{{D4|}}}</td></tr>}}<!--
+-->{{#if: {{{P5|}}}|<tr><td class="api-paramname">'''{{{P5}}}'''</td><td>{{{D5|}}}</td></tr>}}<!--
+-->{{#if: {{{P6|}}}|<tr><td class="api-paramname">'''{{{P6}}}'''</td><td>{{{D6|}}}</td></tr>}}<!--
+-->{{#if: {{{P7|}}}|<tr><td class="api-paramname">'''{{{P7}}}'''</td><td>{{{D7|}}}</td></tr>}}<!--
+-->{{#if: {{{P8|}}}|<tr><td class="api-paramname">'''{{{P8}}}'''</td><td>{{{D8|}}}</td></tr>}}<!--
+-->{{#if: {{{P9|}}}|<tr><td class="api-paramname">'''{{{P9}}}'''</td><td>{{{D9|}}}</td></tr>}}<!--
+--></table><!--
+
+-->{{#if:{{{R|}}}|<p></p>
+{{i18n|tag=b|en=Returns|zh=返回}}: {{{R}}}}}<!--
+
+--></includeonly><!--
+--><noinclude>
+{{APIDoc
+|Name=Func1
+|Desc=
+* desc1
+* desc2
+|P1=p1
+|P2=p2
+|D1=ABCDEFG
+}}
+</noinclude>

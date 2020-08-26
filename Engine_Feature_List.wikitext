@@ -1,0 +1,28 @@
+{{i18n header}}
+{{i18n
+|en=
+This page lists pages about features of LuaSTG engines.
+|zh=
+本页面列出了关于LuaSTG引擎功能的页面。
+}}
+------
+{{i18n
+|en=<p></p>
+
+* [[Game Object]]
+* [[Bent Laser]]
+* [[Blend Mode]]
+* [[Render Mode]]
+* [[Render Target]]
+* [[Resource Pool]]
+* [[Shader]]
+|zh=<p></p>
+
+* [[Game Object|游戏对象]]
+* [[Bent Laser|曲线激光]]
+* [[Blend Mode|混合模式]]
+* [[Render Mode|渲染模式]]
+* [[Render Target|渲染目标]]
+* [[Resource Pool|资源池]]
+* [[Shader|着色器]]
+}}

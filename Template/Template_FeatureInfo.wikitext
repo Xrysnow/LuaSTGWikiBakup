@@ -1,0 +1,19 @@
+<includeonly><!--
+--><table class="wikitable featureinfo" border="1"><tr><th colspan="2">{{i18n|en=Basic Information|zh=基本信息|ja=基本情報}}</th></tr><!--
+
+--><tr><td class="label">{{i18n|en=Name|zh=名称|ja=名前}}</td><td>{{{Title|{{PAGENAME}}}}}</td></tr><!--
+
+-->{{#if: {{{Type|}}} |<tr><td class="label">{{i18n|en=Type|zh=类别|ja=タイプ}}</td><td>{{{Type}}}</td></tr>}}<!--
+
+--><tr><td class="label">{{i18n|en=Applicable Version|zh=适用版本|ja=適用バージョン}}</td><td>{{#if: {{{Version|}}} |{{{Version}}}|N/A}}</td></tr><!--
+
+-->{{#if: {{{Note|}}} |<tr><td class="label">{{i18n|en=Note|zh=备注|ja=備考}}</td><td>{{{Note}}}</td></tr>}}<!--
+--></table><!--
+--></includeonly><noinclude>
+{{FeatureInfo|
+| Name = Feature
+| Type = A
+| Version = B
+| Note = C
+}}
+</noinclude>

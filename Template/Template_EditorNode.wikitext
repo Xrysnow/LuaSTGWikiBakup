@@ -1,0 +1,17 @@
+<includeonly><!--
+
+-->{{#if:{{{Icon|}}}|[[File:{{{Icon}}}|24x24px]]&nbsp;}}<!--
+
+--><b>{{#if:{{{Page|}}}|[[{{{Page}}}|{{{Name}}}]]|[[{{{Name}}}]]}}</b><!--
+
+-->{{#if:{{{Brief|}}}|:{{{Brief}}}}}<!--
+
+--></includeonly><!--
+--><noinclude>
+{{EditorNode
+|Icon=Advancedrepeat.png
+|Name=Advanced Repeat
+|Page=Advanced Repeat (Editor Sharp)
+|Brief=This is a brief description.
+}}
+</noinclude>

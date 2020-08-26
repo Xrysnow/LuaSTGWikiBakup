@@ -1,0 +1,9 @@
+<includeonly><!--
+
+--><div style="text-align: center; border: 1;">[[File:Warning.png|16x16px]] {{i18n
+|en=''Following contents may not apply for [[LuaSTG (vanilla)|LuaSTG]] and [[LuaSTG Boost]]''
+|zh=''以下内容可能不适用于 [[LuaSTG (vanilla)|LuaSTG]] 和 [[LuaSTG Boost]]''
+|ja=''以下の内容は [[LuaSTG (vanilla)|LuaSTG]] と [[LuaSTG Boost]] に適用されません''
+}}</div><!--
+
+--></includeonly><noinclude>{{OldEngineWarning}}</noinclude>

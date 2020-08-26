@@ -1,0 +1,36 @@
+{{i18n header}}
+{{FeatureInfo
+| Type = Graphics
+| Version = LuaSTGPlus, LuaSTGExPlus, LuaSTG-x
+}}
+{{i18n
+|en=
+Shader is a type of computer program, usually used to make special graphic effects.
+
+*	(P) Shaders are in FX format of D3D9, written in HLSL. They use "binding" annotations to accept variables from lua scripts.
+*	(X) Shaders can be fragment and/or vertex shader in GLSL. They use uniforms to accept variables from lua scripts.
+
+Acceptable lua variables:
+:		string: interpreted as texture (name of resource)
+:		number: interpreted as a float value
+:		lstg::Color: interpreted as a float4 value
+*	(P) Shader can only be used for post effect.
+*	(X) Shader can be used for post effect and render mode of each object.
+|zh=
+着色器是一种GPU程序，通常用于产生图形效果。
+
+*	(P) 着色器格式为D3D9的FX格式，使用HLSL语言。使用名为"binding"的annotation来接收来自lua脚本的变量。
+*	(X) 着色器为使用GLSL语言编写的像素着色器和/或顶点着色器。使用uniform变量来接收来自lua脚本的变量。
+
+可接受的lua变量:
+:		string：解释为纹理（资源名称）
+:		number：解释为float
+:		lstg::Color：解释为float4
+*	(P) 着色器只能用于后处理。
+*	(X) 着色器可以用于后处理和每个对象的渲染模式。
+}}
+== See also ==
+{{i18n
+|en=[https://en.wikipedia.org/wiki/Shader Wikipedia]
+|zh=[https://zh.wikipedia.org/wiki/%E7%9D%80%E8%89%B2%E5%99%A8 Wikipedia]
+}}

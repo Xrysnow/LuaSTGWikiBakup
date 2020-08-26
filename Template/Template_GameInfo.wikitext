@@ -1,0 +1,42 @@
+<includeonly><!--
+--><table class="wikitable doujininfo" border="1"><tr><th colspan="3">{{i18n|en=Basic Information|zh=基本信息|ja=基本情報}}</th></tr><!--
+
+--><tr><td class="label">{{i18n|en=Title|zh=名称|ja=タイトル}}</td><td colspan="2">{{{Title|{{PAGENAME}}}}}</td></tr><!--
+-->{{#if: {{{Translation|}}} |<tr><td class="label" colspan="2">{{i18n|en=Translation|zh=译名|ja=翻訳}}</td><td>{{{Translation}}}</td></tr>|}}<!--
+--><tr><td class="label">{{i18n|en=Producer|zh=制作方|ja=メーカー}}</td><td>{{#if: {{{Producer|}}} |{{{Producer}}}|N/A}}</td><!--
+
+-->{{CoverInfo|Height={{{CoverHeight}}}|CoverEntry={{{Cover|}}}|CoverChara={{{CoverChara|}}}}}<!--
+--></tr><!--
+
+-->{{#if: {{{Issuer|}}} |<tr><td class="label">{{i18n|en=Issuer|zh=发行方|ja=発行者}}</td><td>{{{Issuer}}}</td></tr>|}}<!--
+--><tr><td class="label">{{i18n|en=Release Date|zh=发布日期|ja=発売日}}</td><td>{{#if: {{{Date|}}} |{{{Date}}}|N/A}}</td></tr><!--
+-->{{#if: {{{Type|}}} |<tr><td class="label">{{i18n|en=Type|zh=类型|ja=種別}}</td><td></td></tr>}}<!--
+-->{{#if: {{{CatalogID|}}} |<tr><td class="label">{{i18n|en=Catalog ID|zh=编号|ja=型番}}</td><td>{{{CatalogID}}}</td></tr>|}}<!--
+--><tr><td class="label">{{i18n|en=Rating|zh=分级指定|ja=指定}}</td><td>{{#if:{{{Grade|}}}|{{{Grade|}}}|General}}</td></tr><!--
+
+-->{{#if: {{{GameType|}}} |<tr><td class="label">{{i18n|en=Game Type|zh=游戏类型|ja=ゲームの種別}}</td><td>{{{GameType}}}</td></tr>}}<!--
+-->{{#if: {{{Platform|}}} |<tr><td class="label">{{i18n|en=Platform|zh=运行平台|ja=プラットフォーム}}</td><td>{{{Platform}}}</td></tr>}}<!--
+-->{{#if: {{{Language|}}} |<tr><td class="label">{{i18n|en=Language|zh=语言|ja=言語}}</td><td>{{{Language}}}</td></tr>}}<!--
+-->{{#if: {{{Price|}}} |<tr><td class="label">{{i18n|en=Price|zh=售价|ja=価格}}</td><td>{{{Price}}}</td></tr>}}<!--
+
+--><tr><td class="label">{{i18n|en=Engine|zh=引擎|ja=エンジン}}</td><td>{{#if: {{{Engine|}}} |{{{Engine}}}|N/A}}</td></tr><!--
+
+-->{{#if: {{{OfficialWebsite|}}} |<tr><td class="label">{{i18n|en=Website|zh=官网页面|ja=公式サイト}}</td><td colspan="2">{{{OfficialWebsite}}}</td></tr>}}<!--
+-->{{#if: {{{Note|}}} |<tr><td class="label">{{i18n|en=Note|zh=备注|ja=備考}}</td><td colspan="2">{{{Note}}}</td></tr>}}<!--
+--></table><!--
+--></includeonly>
+
+<noinclude>
+{{GameInfo|
+| Cover = Wikifront.png
+| CoverChara = Budur
+| Producer = A
+| Issuer = B
+| Labguage = C
+| GameType = D
+| Platform = E
+| Price = F
+| OfficialWebsite = G
+| CoverHeight = 8
+}}
+</noinclude>

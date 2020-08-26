@@ -1,0 +1,54 @@
+{{i18n header}}
+{{FeatureInfo
+| Type = Resource
+| Version = All
+}}
+{{i18n
+|en=
+There are two resource pool provided by engine: '''global''' and '''stage'''. They are managed separately.
+
+A resource is identified by its name (a string). Name should be unique in a pool.
+
+All load function will load resource into current activated pool. Resource will be find in '''stage''' pool first, then '''global''' pool.
+|zh=
+引擎提供了两个资源池：'''global''' 和 '''stage'''。二者分别进行管理。
+
+每个资源以名字（字符串）作为标识。同一个资源池中的名字是唯一的。
+
+所有资源加载函数会将资源载入当前激活的资源池。查找资源时会优先到 '''stage''' 池查找，然后是 '''global''' 池。
+}}
+<h3>{{i18n
+|en=Resource types
+|zh=资源类型
+}}</h3>
+;LuaSTG/LuaSTG Boost
+# Texture
+# Image
+# Animation
+# Music
+# Sound
+# Particle
+# Texture font
+# TTF font
+
+;LuaSTGPlus/LuaSTGExPlus
+# Texture
+# Image
+# Animation
+# Music
+# Sound
+# Particle
+# Texture font
+# TTF font
+# Shader
+
+;LuaSTG-x
+# Texture
+# Image
+# Animation
+# Music
+# Sound
+# Particle
+# Font
+# Shader
+# Render target

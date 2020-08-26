@@ -1,0 +1,6 @@
+<includeonly><!--
+--><{{{tag|div}}} class="lang-en {{#if:{{{class|}}}|{{{class}}}}}" {{#if:{{{id|}}}|id="{{{id}}}"}}>{{{en|1}}}</{{{tag|div}}}><!--
+--><{{{tag|div}}} class="lang-zh {{#if:{{{class|}}}|{{{class}}}}}" {{#if:{{{id|}}}|id="{{{id}}}"}}>{{#if: {{{zh|}}}|{{{zh}}}|{{{en|1}}}}}</{{{tag|div}}}><!--
+--><{{{tag|div}}} class="lang-ja {{#if:{{{class|}}}|{{{class}}}}}" {{#if:{{{id|}}}|id="{{{id}}}"}}>{{#if: {{{ja|}}}|{{{ja}}}|{{{en|1}}}}}</{{{tag|div}}}><!--
+--></includeonly>
+<noinclude>{{i18n|en=English Content|zh=中文内容}}</noinclude>

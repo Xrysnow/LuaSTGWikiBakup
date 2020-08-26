@@ -1,0 +1,50 @@
+{{i18n header}}
+{{FeatureInfo
+| Type = Graphics
+| Version = LuaSTGPlus, LuaSTGExPlus
+}}
+{{i18n
+|en=
+Blend mode consists of two parts: one part specifies how vertex color is applied to fragments, the other part specifies how fragments blend with the buffer.
+
+The engine provides several blend modes, they can be specified by name.
+
+;Available blend mode
+|zh=
+混合模式包含两部分：一部分指定顶点颜色如何应用于片段，另一部分指定片段如何与缓冲区混合。
+
+引擎提供了若干混合模式，使用时以名称进行指定。
+
+;可选的混合模式
+}}
+{| class="wikitable"
+! style="text-align: left;" | {{i18n|en=Name|zh=名称}}
+! {{i18n|en=Description|zh=描述}}
+|-
+|""
+|{{i18n|en=Equals to "mul+alpha", default mode|zh=等同于 "mul+alpha"，默认模式}}
+|-
+|"mul+add"
+|{{i18n|en=Multiplication for vertex color, addition for blend|zh=顶点颜色使用乘法，混合使用加法}}
+|-
+|"mul+alpha"
+|{{i18n|en=Multiplication for vertex color, alpha for blend|zh=顶点颜色使用乘法，混合使用alpha}}
+|-
+|"mul+sub"
+|{{i18n|en=Multiplication for vertex color, subtraction for blend|zh=顶点颜色使用乘法，混合使用减法}}
+|-
+|"mul+rev"
+|{{i18n|en=Multiplication for vertex color, reverse subtraction for blend|zh=顶点颜色使用乘法，混合使用反向减法}}
+|-
+|"add+add"
+|{{i18n|en=Addition for vertex color, addition for blend|zh=顶点颜色使用加法，混合使用加法}}
+|-
+|"add+alpha"
+|{{i18n|en=Addition for vertex color, alpha for blend|zh=顶点颜色使用加法，混合使用alpha}}
+|-
+|"add+sub"
+|{{i18n|en=Addition for vertex color, subtraction for blend|zh=顶点颜色使用加法，混合使用减法}}
+|-
+|"add+rev"
+|{{i18n|en=Addition for vertex color, reverse subtraction for blend|zh=顶点颜色使用加法，混合使用反向减法}}
+|}

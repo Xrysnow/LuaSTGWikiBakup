@@ -1,0 +1,7 @@
+<includeonly><!--
+--><td class="cover-artwork" rowspan="{{{Height|}}}" style="min-width:{{#expr:28*({{{Height|}}})}}px;">{{#if: {{{CoverEntry|}}} | <!--
+-->[[File:{{{CoverEntry|}}}|{{#expr:28*({{{Height|}}})}}x{{#expr:28*({{{Height|}}})}}px|Cover Image]]<!--
+-->{{#if: {{{CoverChara|}}} | {{#ifeq:{{{CoverChara|}}}|None||<div class="cover-char">Characters：{{{CoverChara|}}}</div>}}}}<!--
+--> | No Cover }}</td><!--
+--></includeonly>
+<noinclude>{{CoverInfo|Height=5|CoverEntry=Wikifront.png|CoverChara=xxx}}</noinclude>

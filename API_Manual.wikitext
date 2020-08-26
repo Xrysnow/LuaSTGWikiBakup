@@ -1,0 +1,3105 @@
+{{i18n header}}
+=== Introduction ===
+
+{{i18n
+|en=
+This page shows documents of core API of LuaSTG, including Plus and X version.
+
+To get original API manual of [[LuaSTGPlus]], please visit [https://github.com/9chu/LuaSTGPlus/blob/master/APIManual.md here].
+
+To get full API document of [[LuaSTG-x]], please visit [https://xrysnow.github.io/lstgx_Doc here]. It's better for LuaSTG-x users to use this document since many functions are extended.
+|zh=
+本页面为LuaSTG的核心API文档，包括Plus和X版本。
+
+[[LuaSTGPlus]]的原始API手册见[https://github.com/9chu/LuaSTGPlus/blob/master/APIManual.md 此处]。
+
+[[LuaSTG-x]]的完整API文档见[https://xrysnow.github.io/lstgx_Doc 此处]。由于新增了大量函数，推荐LuaSTG-x用户使用该文档。
+}}
+
+{| class="navbox" style="border: 1px solid #000; width: 100%; border-spacing: 0;"
+! colspan="2" style="border-bottom: 1px solid #000;" | {{i18n|en=Legend|zh=图例}}
+|- 
+| style="border-bottom: 1px solid #000; border-right: 1px solid #000;" | [P]
+| style="border-bottom: 1px solid #000;" | {{i18n|en=This API is avalible in LuaSTGPlus.|zh=该API仅适用于LuaSTGPlus}}
+|- 
+| style="border-bottom: 1px solid #000; border-right: 1px solid #000;" | [X]
+| style="border-bottom: 1px solid #000;" | {{i18n|en=This API is avalible in LuaSTG-x.|zh=该API仅适用于LuaSTG-x}}
+|- 
+| style="border-bottom: 1px solid #000; border-right: 1px solid #000;" | [static]
+| style="border-bottom: 1px solid #000;" | {{i18n|en=This API is a static function.|zh=该API为静态函数}}
+|-
+| style="border-bottom: 1px solid #000; border-right: 1px solid #000;" | (P)
+| style="border-bottom: 1px solid #000;" | {{i18n|en=Following descriptions only apply for LuaSTGPlus.|zh=该描述仅适用于LuaSTGPlus}}
+|-
+| style="border-right: 1px solid #000;" | (X)
+| style="" | {{i18n|en=Following descriptions only apply for LuaSTG-x.|zh=该描述仅适用于LuaSTG-x}}
+|}
+
+=== Global Variables ===
+
+===== lstg =====
+
+<small>[P] [X]</small>
+
+{{i18n
+|en=Holds API functions and many script stuff. Functions will be exported to global space at launch.
+|zh=持有API函数及一些脚本内容。函数会在启动时导出到全局空间。
+}}
+;Type
+:	table
+
+===== args =====
+
+<small>[P]</small>
+
+{{i18n
+|en=Holds command line arguments as an array of string.
+|zh=以字符串数组的形式持有命令行参数。
+}}
+;Type
+:	table
+
+===== _ARGS =====
+
+<small>[X]</small>
+
+{{i18n
+|en=Holds command line arguments as an array of string.
+|zh=以字符串数组的形式持有命令行参数。
+}}
+;Type
+:	table
+
+=== Frame Control ===
+{{APIDoc
+|Name=SetWindowed
+|P1=isWindowed
+|D1=boolean 
+|R=
+|Dep=1
+|Desc=
+{{i18n
+|en=
+	Set the engine windowed or full-screen. '''true''' for windowed and '''false''' for full-screen. Default is '''true'''.
+
+*	(P) Can only be invoked during launch instead of runtime.
+|zh=
+	设置引擎以窗口或全屏模式运行。'''true''' 为窗口， '''false''' 为全屏。默认为 '''true'''.
+
+*	(P) 仅限初始化时使用，无法在运行时使用。
+}}
+}}
+{{APIDoc
+|Name=SetFPS
+|P1=targetFPS
+|D1=number
+|R=
+|Desc=
+{{i18n
+|en=
+	Set target FPS. Default is '''60'''.
+
+*	(P) Can only be invoked during launch instead of runtime.
+|zh=
+	设置引擎运行的目标帧率。默认为 '''60'''。
+
+*	(P) 仅限初始化时使用，无法在运行时使用。
+}}
+}}
+{{APIDoc
+|Name=GetFPS
+|R=number
+|Desc=
+{{i18n
+|en=
+	Get current FPS (not target FPS).
+|zh=
+	获取引擎的当前帧率（非目标帧率）。
+}}
+}}
+{{APIDoc
+|Name=SetVsync
+|P1=isEnable
+|D1=boolean
+|R=
+|Desc=
+{{i18n
+|en=
+	Set V-Sync. Default is '''true'''.
+
+*	(P) Can only be invoked during launch instead of runtime.
+|zh=
+	设置是否开启垂直同步。默认为 '''true'''。
+
+*	(P) 仅限初始化时使用，无法在运行时使用。
+}}
+}}
+{{APIDoc
+|Name=SetResolution
+|P1=width
+|D1=number
+|P2=height
+|D2=number
+|R=
+|Desc=
+{{i18n
+|en=
+	Set window resolution (size) if game is windowed. Default is '''640, 480'''.
+
+*	(P) Can only be invoked during launch instead of runtime.
+|zh=
+	设置引擎的窗口分辨率（大小）。默认为 '''640, 480'''。
+
+*	(P) 仅限初始化时使用，无法在运行时使用。
+}}
+}}
+{{APIDoc
+|Name=ChangeVideoMode
+|P1=width
+|D1=number
+|P2=height
+|D2=number
+|P3=windowed
+|D3=boolean
+|P4=vsync
+|D4=boolean
+|R=boolean
+|Desc=
+{{i18n
+|en=
+	Change display parameters. Returns '''true''' if success, otherwise returns '''false''' and restore last parameters.
+
+*	(P) Can only be invoked during runtime.
+|zh=
+	设置显示参数。若成功返回 '''true'''，否则返回 '''false''' 并恢复到上次的参数。
+
+*	(P) 仅限运行时使用。
+}}
+}}
+{{APIDoc
+|Name=SetSplash
+|P1=boolean
+|R=
+|Desc=
+{{i18n
+|en=
+	Set if the mouse cursor is displayed in game window.
+
+*	(P) Default is '''false'''.
+
+*	(X) Default is '''true'''.
+|zh=
+	设置是否显示在窗口内光标。
+
+*	(P) 默认为 '''false'''.
+
+*	(X) 默认为 '''true'''.
+}}
+}}
+{{APIDoc
+|Name=SetTitle
+|P1=title
+|D1=string
+|R=
+|Desc=
+{{i18n
+|en=
+	Set the caption of window.
+
+*	(P) Default is '''"LuaSTGPlus"'''.
+
+*	(X) Default is '''"LuaSTG-x"'''.
+|zh=
+	设置窗口标题。
+
+*	(P) 默认为 '''"LuaSTGPlus"'''.
+
+*	(X) 默认为 '''"LuaSTG-x"'''.
+}}
+}}
+{{APIDoc
+|Name=SystemLog
+|P1=str
+|D1=string
+|R=
+|Desc=
+{{i18n
+|en=
+	Write string to log file.
+|zh=
+	将字符串写入日志文件。
+}}
+}}
+{{APIDoc
+|Name=Print
+|P1=...
+|R=
+|Desc=
+{{i18n
+|en=<p></p>
+
+*	(P) Write values to log file.
+
+*	(X) Print values to console on desktop platforms. Write values to log file on mobile platforms.
+|zh=<p></p>
+
+*	(P) 将多个值写入日志文件。
+
+*	(X) 在桌面平台上将多个值打印至console。在移动平台上将多个值写入日志文件。
+}}
+}}
+{{APIDoc
+|Name=LoadPack
+|P1=path
+|D1=string
+|P2=password
+|D2=string [optional]
+|R=
+|Desc=
+{{i18n
+|en=
+	Load zip pack at '''path''' with an optional password.
+
+	Will throw an error if failed.
+
+;	Detail
+:	Zip pack loaded later will have higher priority. So you can override files in previous packs.
+:	Zip file will be occupied after loaded.
+:	Files required by engine will be searched in packs at first, then local path.
+|zh=
+	加载位于 '''path''' 的资源包，可选填密码。
+
+	失败时将抛出错误。
+
+;	细节
+:	后加载的资源包有较高的查找优先级。这意味着可以覆盖之前包中的文件。
+:	zip文件在加载后将被程序占用。
+:	加载文件时将按照优先级依次搜索，若资源包中未找到则从本地路径加载。
+}}
+}}
+{{APIDoc
+|Name=UnloadPack
+|P1=path
+|D1=string
+|R=
+|Desc=
+{{i18n
+|en=
+	Unload zip pack loaded at '''path'''.
+
+	Will '''NOT''' throw an error if failed.
+|zh=
+	卸载位于 '''path''' 的资源包。
+
+	失败时将'''不会'''抛出错误。
+}}
+}}
+{{APIDoc
+|Name=ExtractRes
+|P1=path
+|D1=string
+|P2=target
+|D2=string
+|R=
+|Desc=
+{{i18n
+|en=
+	Extract files in pack to local path.
+
+	Will throw an error if failed.
+|zh=
+	将资源包中的文件解压到本地。
+
+	失败时将抛出错误。
+}}
+}}
+{{APIDoc
+|Name=DoFile
+|P1=path
+|D1=string
+|R=
+|Desc=
+{{i18n
+|en=
+	Execute script at '''path'''. Similar to '''dofile()''' of Lua.
+
+	Will throw an error if script not exists, failed to compile or failed to execute.
+|zh=
+	执行位于 '''path''' 的脚本。与Lua中的 '''dofile()''' 类似。
+
+	若文件不存在、编译失败或执行失败则抛出错误。
+}}
+}}
+{{APIDoc
+|Name=ShowSplashWindow
+|P1=path
+|D1=string [optional] Path of picture file.
+|R=
+|Dep=1
+|Desc=
+{{i18n
+|en=<p></p>
+
+*	(P) Set the loading picture.
+:	Will use default picture if failed or '''path''' not passed.
+
+*	(X) Do nothing.
+|zh=<p></p>
+
+*	(P) 设置启动图片。
+:	若图片加载失败或为空则使用默认图片。
+
+*	(X) 无作用。
+}}
+}}
+
+=== Game Object Pool ===
+
+{{APIDoc
+|Name=GetnObj
+|R=number
+|Desc=
+{{i18n
+|en=
+	Get game object count.
+|zh=
+	获取游戏对象的数量。
+}}
+}}
+{{APIDoc
+|Name=ObjFrame
+|R=
+|Desc=
+{{i18n
+|en=
+	Update all game objects.
+
+	'''Do not invoke in coroutine.'''
+
+;	Detail
+:		Properties will be updated in the following order:
+::			vx += ax
+::			vy += ay
+::			x += vx
+::			y += vy
+::			rot += omiga
+::			Update paritle system if there is
+|zh=
+	更新所有游戏对象。
+
+	'''禁止在协程上调用该方法。'''
+
+;	细节
+:		属性将按以下顺序更新：
+::			vx += ax
+::			vy += ay
+::			x += vx
+::			y += vy
+::			rot += omiga
+::			更新粒子系统（若有）
+}}
+}}
+{{APIDoc
+|Name=ObjRender
+|R=
+|Desc=
+{{i18n
+|en=
+	Render all game objects. Will invoke '''rander()''' callback one by one.
+
+	Object with smaller '''layer''' property will be rendered first.
+
+	'''Do not invoke in coroutine.'''
+|zh=
+	渲染所有游戏对象。将依次调用 '''rander()''' 回调。
+
+	具有较小 '''layer''' 属性的游戏对象将会先渲染。
+
+	'''禁止在协程上调用该方法。'''
+}}
+}}
+{{APIDoc
+|Name=SetBound
+|P1=left
+|D1=number
+|P2=right
+|D2=number
+|P3=bottom
+|D3=number
+|P4=top
+|D4=number
+|R=
+|Desc=
+{{i18n
+|en=
+	Set boundary for game objects.
+|zh=
+	设置游戏对象的边界。
+}}
+}}
+{{APIDoc
+|Name=BoundCheck
+|R=
+|Desc=
+{{i18n
+|en=
+	Do boundary check and mark objects outside boundary as '''del''' status.
+
+	An object will not be marked if '''bound''' property is '''false'''.
+
+	'''Do not invoke in coroutine.'''
+|zh=
+	执行边界检查并将边界外的游戏对象标记为 '''del''' 状态。
+
+	当游戏对象的 '''bound''' 属性为 '''false''' 时将不会被标记。
+
+	'''禁止在协程上调用该方法。'''
+}}
+}}
+{{APIDoc
+|Name=CollisionCheck
+|P1=A
+|D1=number/object
+|P2=B
+|D2=number/object
+|R=
+|Desc=
+{{i18n
+|en=
+	Do collision chekc on '''A''' and '''B'''.
+
+	If an object (in group) '''A''' collides another object (in group) '''B''', its '''colli()''' callback will be invoked and the other object will be passed as parameter.
+
+*	(P) '''A''' and '''B''' are group IDs.
+
+*	(X) '''A''' and '''B''' can be either group ID or object.
+
+	'''Do not invoke in coroutine.'''
+|zh=
+	对 '''A''' 和 '''B''' 进行碰撞检测。
+
+	若 '''A'''（组中的）对象和 '''B'''（组中的）对象发生碰撞，前者的 '''colli()''' 回调将会被调用，后者会作为参数传入。
+
+*	(P) '''A''' 和 '''B''' 为碰撞组ID。
+
+*	(X) '''A''' 和 '''B''' 为碰撞组ID或游戏对象。
+
+	'''禁止在协程上调用该方法。'''
+}}
+}}
+{{APIDoc
+|Name=UpdateXY
+|R=
+|Desc=
+{{i18n
+|en=
+	Update following properties of all objects: dx, dy, lastx, lasty, rot (when navi is '''true''').
+
+	'''Do not invoke in coroutine.'''
+|zh=
+	更新所有游戏对象的以下属性：dx, dy, lastx, lasty, rot（当 navi 为 '''true'''）。
+
+	'''禁止在协程上调用该方法。'''
+}}
+}}
+{{APIDoc
+|Name=AfterFrame
+|R=
+|Desc=
+{{i18n
+|en=
+	Update following properties of all objects: timer, ani_timer. Trim objects marked as '''del''' or '''kill'''.
+
+	'''Do not invoke in coroutine.'''
+
+;	Detail
+:		Set '''status''' property of an object to "normal" to preserve it.
+|zh=
+	更新所有游戏对象的以下属性：timer, ani_timer。销毁被标记为 '''del''' 或 '''kill''' 的游戏对象。
+
+	'''禁止在协程上调用该方法。'''
+
+;	细节
+:		将游戏对象的 '''status''' 属性设置为 "normal" 可以将其保留。
+}}
+}}
+{{APIDoc
+|Name=New
+|P1=class
+|D1=table
+|R=
+|Desc=
+{{i18n
+|en=
+	Creates a game object and returns it.
+
+;	Detail
+:		Game object is created based on '''class''' and will invoke '''init()''' callback.
+:		Created object will have following properties:
+::<table style="background:transparent;"><!--
+--><tr><td>x, y</td><td>coordinates</td></tr><!--
+--><tr><td>dx, dy</td><td>difference of coordinates from last update (read-only)</td></tr><!--
+--><tr><td>rot</td><td>orientation (in degrees)</td></tr><!--
+--><tr><td>omiga</td><td>angular velocity of orientation</td></tr><!--
+--><tr><td>timer</td><td>update counter</td></tr><!--
+--><tr><td>vx, vy</td><td>velocity</td></tr><!--
+--><tr><td>ax, ay</td><td>acceleration</td></tr><!--
+--><tr><td>layer</td><td>render layer</td></tr><!--
+--><tr><td>group</td><td>collision group</td></tr><!--
+--><tr><td>hide</td><td>if object will not be rendered</td></tr><!--
+--><tr><td>bound</td><td>if object will be marked at boundary check</td></tr><!--
+--><tr><td>navi</td><td>if orientation will be updated according to velocity</td></tr><!--
+--><tr><td>colli</td><td>if object will be involved in collision check</td></tr><!--
+--><tr><td>status</td><td>status of object, can be "del", "kill" or "normal"</td></tr><!--
+--><tr><td>hscale, vscale</td><td>scale of horizontal and verticle for render</td></tr><!--
+--><tr><td>class</td><td>class of the object</td></tr><!--
+--><tr><td>a, b</td><td>parameters of collision box size</td></tr><!--
+--><tr><td>rect</td><td>if collision box is rectangle</td></tr><!--
+--><tr><td>img</td><td>name of renderable resource on the object</td></tr><!--
+--><tr><td>ani</td><td>animation timer (read-only)</td></tr><!--
+--></table>
+:		Index '''1''' and '''2''' of the object will be '''class''' and internal ID, do not modify them.
+
+:		'''class''' should have following properties:
+::			is_class = true
+::			[1] = '''init(object, ...)''' callback
+::			[2] = '''del(object, ...)''' callback
+::			[3] = '''frame(object)''' callback
+::			[4] = '''render(object)''' callback
+::			[5] = '''colli(object, object)''' callback
+::			[6] = '''kill(object, ...)''' callback
+:		Callbacks will be invoked when corresponding event happens.
+	
+:		The upper limit of object count is 32768. An error will be thrown if it exceeds.
+|zh=
+	创建一个游戏对象并返回。
+
+;	细节
+:		游戏对象基于 '''class''' 创建并将调用 '''init()''' 回调。
+:		被创建的对象具有如下属性：
+::<table style="background:transparent;"><!--
+--><tr><td>x, y</td><td>坐标</td></tr><!--
+--><tr><td>dx, dy</td><td>坐标相对于上次更新时的增量（只读）</td></tr><!--
+--><tr><td>rot</td><td>朝向（角度）</td></tr><!--
+--><tr><td>omiga</td><td>朝向的角速度</td></tr><!--
+--><tr><td>timer</td><td>更新计数器</td></tr><!--
+--><tr><td>vx, vy</td><td>速度</td></tr><!--
+--><tr><td>ax, ay</td><td>加速度</td></tr><!--
+--><tr><td>layer</td><td>渲染层级</td></tr><!--
+--><tr><td>group</td><td>碰撞组</td></tr><!--
+--><tr><td>hide</td><td>是否隐藏（跳过渲染回调）</td></tr><!--
+--><tr><td>bound</td><td>是否越界销毁</td></tr><!--
+--><tr><td>navi</td><td>是否根据速度自动更新朝向</td></tr><!--
+--><tr><td>colli</td><td>是否参与碰撞检测</td></tr><!--
+--><tr><td>status</td><td>对象状态，取值为 "del", "kill" 或 "normal"</td></tr><!--
+--><tr><td>hscale, vscale</td><td>横向、纵向的渲染缩放</td></tr><!--
+--><tr><td>class</td><td>对象的类</td></tr><!--
+--><tr><td>a, b</td><td>碰撞盒尺寸的参数</td></tr><!--
+--><tr><td>rect</td><td>是否为矩形碰撞盒</td></tr><!--
+--><tr><td>img</td><td>绑定的可渲染资源的名字</td></tr><!--
+--><tr><td>ani</td><td>动画计数器（只读）</td></tr><!--
+--></table>
+:		游戏对象的索引 '''1''' 和 '''2''' 用于保存 '''class''' 和内部ID，请勿修改。
+
+:		'''class''' 需要具有以下属性：
+::			is_class = true
+::			[1] = '''init(object, ...)''' callback
+::			[2] = '''del(object, ...)''' callback
+::			[3] = '''frame(object)''' callback
+::			[4] = '''render(object)''' callback
+::			[5] = '''colli(object, object)''' callback
+::			[6] = '''kill(object, ...)''' callback
+:		回调函数将在对象触发相应事件时被调用。
+	
+:		游戏对象数量的上限为32768。超出后将抛出错误。
+}}
+}}
+{{APIDoc
+|Name=Del
+|P1=object
+|P2=...
+|D2=[optional]
+|R=
+|Desc=
+{{i18n
+|en=
+	Mark object as '''del''' status and invoke '''del()''' callback.
+
+	Parameters passed after '''object''' will be passed to '''del()''' callback.
+|zh=
+	将游戏对象标记为 '''del''' 状态并调用 '''del()''' 回调。
+
+	在 '''object''' 之后的参数将传入 '''del()''' 回调。
+}}
+}}
+{{APIDoc
+|Name=Kill
+|P1=object
+|P2=...
+|D2=[optional]
+|R=
+|Desc=
+{{i18n
+|en=
+	Mark object as '''kill''' status and invoke '''kill()''' callback.
+
+	Parameters passed after '''object''' will be passed to '''kill()''' callback.
+|zh=
+	将游戏对象标记为 '''kill''' 状态并调用 '''kill()''' 回调。
+
+	在 '''object''' 之后的参数将传入 '''kill()''' 回调。
+}}
+}}
+{{APIDoc
+|Name=IsValid
+|P1=object
+|R=
+|Desc=
+{{i18n
+|en=
+	Check if object is valid (not trimmed).
+|zh=
+	检查游戏对象是否有效（未被销毁）。
+}}
+}}
+{{APIDoc
+|Name=GetV
+|P1=object
+|R=number,number
+|Desc=
+{{i18n
+|en=
+	Returns magnitude and direction (in degrees) of object velocity.
+|zh=
+	返回游戏对象的速度大小和速度方向（角度）。
+}}
+}}
+{{APIDoc
+|Name=SetV
+|P1=object
+|D1=object
+|P2=magnitude
+|D2=number
+|P3=direction
+|D3=number
+|P4=updateRot
+|D4=boolean
+|R=
+|Desc=
+{{i18n
+|en=
+	Set magnitude and direction (in degrees) of object velocity. Will update '''rot''' property if '''updateRot''' is '''true'''.
+|zh=
+	设置游戏对象的速度大小和速度方向（角度）。当 '''updateRot''' 为 '''true''' 时将更新 '''rot''' 属性。
+}}
+}}
+{{APIDoc
+|Name=SetImgState
+|P1=object
+|P2=blend
+|D2=string
+|P3=a
+|D3=number
+|P4=r
+|D4=number
+|P5=g
+|D5=number
+|P6=b
+|D6=number
+|R=
+|Desc=
+{{i18n
+|en=
+	Set parameters of the renderable resource bind to '''object'''.
+|zh=
+	设置绑定在 '''object''' 上的可渲染资源的参数。
+}}
+}}
+{{APIDoc
+|Name=Angle
+|P1=a
+|D1=object
+|P2=b
+|D2=object
+|R=number
+|Desc=
+{{i18n
+|en=
+	Returns angle between the line connecting two objects and X axis in degrees.
+|zh=
+	返回两个游戏对象连线与X轴正方向的夹角（角度）。
+}}
+}}
+{{APIDoc
+|Name=Angle
+|P1=x1
+|D1=number
+|P2=y1
+|D2=number
+|P3=x2
+|D3=number
+|P4=y2
+|D4=number
+|R=number
+|Desc=
+{{i18n
+|en=
+	Returns angle between the line connecting two points and X axis in degrees.
+|zh=
+	返回两点连线与X轴正方向的夹角（角度）。
+}}
+}}
+{{APIDoc
+|Name=Dist
+|P1=a
+|D1=object
+|P2=b
+|D2=object
+|R=number
+|Desc=
+{{i18n
+|en=
+	Returns distance between two objects.
+|zh=
+	返回两个游戏对象的距离。
+}}
+}}
+{{APIDoc
+|Name=Dist
+|P1=x1
+|D1=number
+|P2=y1
+|D2=number
+|P3=x2
+|D3=number
+|P4=y2
+|D4=number
+|R=number
+|Desc=
+{{i18n
+|en=
+	Returns distance between (x1,y1) and (x2,y2).
+|zh=
+	返回点 (x1,y1) 和 (x2,y2) 的距离。
+}}
+}}
+{{APIDoc
+|Name=BoxCheck
+|P1=object
+|P2=left
+|D2=number
+|P3=right
+|D3=number
+|P4=top
+|D4=number
+|P5=bottom
+|D5=number
+|R=boolean
+|Desc=
+{{i18n
+|en=
+	Check if position of '''object''' is in the given range.
+|zh=
+	检查 '''object''' 的位置是否在给定范围内。
+}}
+}}
+{{APIDoc
+|Name=ResetPool
+|R=
+|Desc=
+{{i18n
+|en=
+	Trim all game objects immediately.
+|zh=
+	立即回收所有游戏对象。
+}}
+}}
+{{APIDoc
+|Name=DefaultRenderFunc
+|P1=object
+|R=
+|Desc=
+{{i18n
+|en=
+	Default render function for a game object.
+|zh=
+	游戏对象的默认渲染函数。
+}}
+}}
+{{APIDoc
+|Name=NextObject
+|P1=groupid
+|D1=number
+|P2=id
+|D2=number
+|R=number,object
+|Desc=
+{{i18n
+|en=
+	Iterates objects in a group if '''groupid''' is valid, otherwise iterates all objects.
+
+	This is manual version of '''ObjList()'''.
+|zh=
+	当 '''groupid''' 有效时，在该组中遍历游戏对象，否则遍历所有游戏对象。
+	
+	'''ObjList()''' 的手动版本。
+}}
+}}
+{{APIDoc
+|Name=ObjList
+|P1=groupid
+|D1=number
+|R=function
+|Desc=
+{{i18n
+|en=
+	Returns an iterator that go through objects in a group.
+
+;	Example
+:		'''for _, obj in ObjList(GROUP_ITEM) do ... end'''
+|zh=
+	返回一个能够遍历组中游戏对象的迭代器。
+
+;	示例
+:		'''for _, obj in ObjList(GROUP_ITEM) do ... end'''
+}}
+}}
+{{APIDoc
+|Name=ParticleFire
+|P1=object
+|R=
+|Desc=	
+{{i18n
+|en=
+	Start particle emitter on '''object'''.
+|zh=
+	启动绑定在对象上的粒子发射器。
+}}
+}}
+{{APIDoc
+|Name=ParticleStop
+|P1=object
+|R=
+|Desc=
+{{i18n
+|en=
+	Stop particle emitter on '''object'''.
+|zh=
+	停止绑定在对象上的粒子发射器。
+}}
+}}
+{{APIDoc
+|Name=ParticleGetn
+|P1=object
+|R=number
+|Desc=
+{{i18n
+|en=
+	Returns current particle count on '''object'''.
+|zh=
+	返回绑定在对象上的粒子发射器的当前粒子数。
+}}
+}}
+{{APIDoc
+|Name=ParticleGetEmission
+|P1=object
+|R=
+|Desc=
+{{i18n
+|en=
+	Returns particle emit frequency on '''object''' (count per second).
+
+;	Detail
+:		Particle emitter will always step by 1/60 seconds.
+|zh=
+	返回绑定在对象上粒子发射器的发射密度（个/秒）。
+
+;	细节
+:		粒子发射器始终以1/60秒的步进更新。
+}}
+}}
+{{APIDoc
+|Name=ParticleSetEmission
+|P1=object
+|P2=count
+|R=
+|Desc=
+{{i18n
+|en=
+	Set particle emit frequency on '''object''' (count per second).
+|zh=
+	设置绑定在对象上粒子发射器的发射密度（个/秒）。
+}}
+}}
+
+=== Game Resource ===
+
+{{i18n
+|en=;Related features
+:	[[Resource Pool]]
+:	(P) [[Blend Mode]]
+:	(X) [[Render Mode]]
+:	[[Render Target]]
+:	[[Shader]]
+|zh=;相关功能
+:	[[Resource Pool|资源池]]
+:	(P) [[Blend Mode|混合模式]]
+:	(X) [[Render Mode|渲染模式]]
+:	[[Render Target|渲染目标]]
+:	[[Shader|着色器]]
+}}
+{{APIDoc
+|Name=RemoveResource
+|P1=poolType
+|D1=string
+|R=
+|Desc=
+{{i18n
+|en=
+	Clear a resources pool. '''poolType''' can be "global" or "stage".
+
+	If a resource is in use, it will not be released until all usages are end.
+|zh=
+	清空一个资源池。'''poolType''' 为 "global" 或 "stage"。
+
+	若资源正在被使用，在使用结束前不会被释放。
+}}
+}}
+{{APIDoc
+|Name=RemoveResource
+|P1=poolType
+|D1=string
+|P2=resType
+|D2=number Resource type code
+|P3=name
+|D3=string
+|R=
+|Desc=
+{{i18n
+|en=
+	Remove a resource from a pool. '''poolType''' can be "global" or "stage".
+
+	If a resource is in use, it will not be released until all usages are end.
+|zh=
+	从资源池中移除指定的资源。'''poolType''' 为 "global" 或 "stage"。
+
+	若资源正在被使用，在使用结束前不会被释放。
+}}
+}}
+{{APIDoc
+|Name=CheckRes
+|P1=type
+|D1=number
+|P2=name
+|D2=string
+|R=string|nil
+|Desc=
+{{i18n
+|en=
+	Returns name of the pool where a resource is located. Usually used to check if a resource exists.
+
+;	Detail
+:		Will search in '''global''' pool at first, then '''stage''' pool.
+:		Returns '''nil''' if resource not exists.
+|zh=
+	返回资源所在的资源池名称。通常用于检测资源是否存在。
+
+;	细节
+:		先在 '''global''' 池中查找，然后是 '''stage''' 池。
+:		若资源不存在则返回 '''nil'''。
+}}
+}}
+{{APIDoc
+|Name=EnumRes
+|P1=type
+|D1=number Resource type code
+|R=table, table
+|Desc=
+{{i18n
+|en=
+	Returns array of all resource names in '''global''' and '''stage''' pool respectively.
+|zh=
+	分别返回 '''global''' 和 '''stage''' 池中所有资源名字的数组。
+}}
+}}
+{{APIDoc
+|Name=GetTextureSize
+|P1=name
+|D1=string
+|R=number, number
+|Desc=
+{{i18n
+|en=
+	Returns width and height of a texture resource.
+|zh=
+	返回纹理资源的宽度和高度。
+}}
+}}
+{{APIDoc
+|Name=LoadTexture
+|P1=name
+|D1=string
+|P2=path
+|D2=string
+|P3=mipmap
+|D3=boolean [optional] Default is '''false'''
+|R=
+|Desc=
+{{i18n
+|en=
+	Load a texture resource from file.
+|zh=
+	从文件加载纹理资源。
+}}
+}}
+{{APIDoc
+|Name=LoadImage
+|P1=name
+|D1=string
+|P2=tex_name
+|D2=string
+|P3=x
+|D3=number
+|P4=y
+|D4=number
+|P5=w
+|D5=number
+|P6=h
+|D6=number
+|P7=a
+|D7=number [optional]
+|P8=b
+|D8=number [optional]
+|P9=rect
+|D9=boolean [optional]
+|R=
+|Desc=
+{{i18n
+|en=
+	Load a image resource from a texture resource.
+
+*	'''x, y''' specifies left-top of the image in texture coordinates (in pixels).
+
+*	'''w, h''' specifies width and height of the image (in pixels).
+
+*	'''a, b, rect''' specifies parameters of the collision box.
+
+;	Detail
+:		When a image resource is assigned to '''img''' property of an object, collision box parameters will be assigned to the object.
+|zh=
+	从纹理资源加载图像资源。
+
+*	'''x, y''' 指定图像在纹理坐标的左上角位置（像素）。
+
+*	'''w, h''' 指定图像的宽度和高度（像素）。
+
+*	'''a, b, rect''' 指定碰撞盒参数。
+
+;	细节
+:		当图像资源被赋予游戏对象的 '''img''' 属性时，碰撞盒参数参数会同时赋予该对象。
+}}
+}}
+{{APIDoc
+|Name=SetImageState
+|P1=name
+|D1=string
+|P2=blendMode
+|D2=string
+|P3=vertColor1
+|D3=lstg::Color [optional]
+|P4=vertColor2
+|D4=lstg::Color [optional]
+|P5=vertColor3
+|D5=lstg::Color [optional]
+|P6=vertColor4
+|D6=lstg::Color [optional]
+|R=
+|Desc=
+{{i18n
+|en=
+	Set parameters of a image resource. Optional vertex color parameters can be 1 or 4.
+|zh=
+	设置图像资源参数，可选1或4个顶点颜色参数。
+}}
+}}
+{{APIDoc
+|Name=SetImageCenter
+|P1=name
+|D1=string
+|P2=x
+|D2=number
+|P3=y
+|D3=number
+|R=
+|Desc=
+{{i18n
+|en=
+	Set center of an image resource to (x, y) relative to its left-top.
+|zh=
+	设置图像资源的中心为 (x, y) ，相对于图像的左上角。
+}}
+}}
+{{APIDoc
+|Name=LoadAnimation
+|P1=name
+|D1=string
+|P2=tex_name
+|D2=string
+|P3=x, y
+|D3=number, number
+|P4=w, h
+|D4=number, number
+|P5=n, m
+|D5=number, number
+|P6=interval
+|D6=number
+|P7=a, b, rect
+|D7=number, number, boolean [optional]
+|R=
+|Desc=
+{{i18n
+|en=
+	Load an animation resource from a texture resource.
+
+*	'''x, y''' specifies top-left coordinates of the first frame.
+
+*	'''w, h''' specifies width and height of one frame.
+
+*	'''n, m''' specifies number of columns and rows.
+
+*	'''interval''' specifies played interval in frames.
+
+*	'''a, b, rect''' specifies parameters of the collision box.
+
+	Animations are always played repeatedly.
+|zh=
+	从纹理资源加载动画资源。
+
+*	'''x, y''' 指定第一帧的左上角坐标。
+
+*	'''w, h''' 指定每帧的宽度和高度。
+
+*	'''n, m''' 指定列和行的数量。
+
+*	'''interval''' 指定播放间隔，单位为帧。
+
+*	'''a, b, rect''' 指定碰撞盒参数。
+
+	动画总是循环播放的。
+}}
+}}
+{{APIDoc
+|Name=SetAnimationState
+|P1=name
+|D1=string
+|P2=blend_mode
+|D2=string
+|P3=vertColor1
+|D3=lstg::Color [optional]
+|P4=vertColor2
+|D4=lstg::Color [optional]
+|P5=vertColor3
+|D5=lstg::Color [optional]
+|P6=vertColor4
+|D6=lstg::Color [optional]
+|R=
+|Desc=
+{{i18n
+|en=
+	Similar to '''SetImageState'''.
+|zh=
+	与 '''SetImageState''' 类似。
+}}
+}}
+{{APIDoc
+|Name=SetAnimationCenter
+|P1=name
+|D1=string
+|P2=x
+|D2=number
+|P3=y
+|D3=number
+|R=
+|Desc=
+{{i18n
+|en=
+	Similar to '''SetImageCenter'''.
+|zh=
+	与 '''SetImageCenter''' 类似。
+}}
+}}
+{{APIDoc
+|Name=LoadPS
+|P1=name
+|D1=string
+|P2=def_file
+|D2=string
+|P3=img_name
+|D3=string
+|P4=a
+|D4=number [optional]
+|P5=b
+|D5=number [optional]
+|P6=rect
+|D6=boolean [optional]
+|R=
+|Desc=
+{{i18n
+|en=
+	Load a particle resource.
+
+*	'''def_file''' specifies path of definition file.
+
+*	'''img_name''' specifies name of image resource.
+
+*	'''a, b, rect''' specifies parameters of the collision box.
+
+	Supports HGE format.
+|zh=
+	加载粒子资源。
+
+*	'''def_file''' 指定定义文件的路径。
+
+*	'''img_name''' 指定图像资源的名称。
+
+*	'''a, b, rect''' 指定碰撞盒参数。
+
+	支持 HGE 格式。
+}}
+}}
+{{APIDoc
+|Name=LoadFont
+|P1=name
+|D1=string
+|P2=def_file
+|D2=string
+|P3=bind_tex [optional]
+|D3=string
+|P4=mipmap
+|D4=boolean [optional] Default is '''true'''.
+|R=
+|Desc=
+{{i18n
+|en=
+	Load a texture font resource.
+
+*	'''def_file''' specifies path of definition file.
+
+*	(P) '''bind_tex''' specifies texture path, only used by fancy2d format.
+
+;	Detail
+:		(P) Supports HGE format and fancy2d format.
+:		(X) Supports HGE format.
+:		For HGE format, texture file will be searched at the same directory of '''def_file'''.
+|zh=
+	加载纹理字体资源。
+
+*	'''def_file''' 指定定义文件的路径。
+
+*	(P) '''bind_tex''' 指定纹理路径，仅用于 fancy2d 格式。
+
+;	Detail
+:		(P) 支持 HGE 格式和 fancy2d 格式。
+:		(X) 支持 HGE 格式。
+:		对于 HGE 格式，纹理文件将在 '''def_file''' 的同级路径查找。
+}}
+}}
+{{APIDoc
+|Name=SetFontState
+|P1=name
+|D1=string
+|P2=blendMode
+|D2=string
+|P3=color
+|D3=lstg::Color [optional]
+|R=
+|Desc=
+{{i18n
+|en=
+	(P) Set status of a texture font resource.
+
+	(X) Set status of a font resource.
+|zh=
+	(P) 设置纹理字体资源的状态。
+
+	(X) 设置字体资源的状态。
+}}
+}}
+{{APIDoc
+|Name=LoadTTF
+|P1=name
+|D1=string
+|P2=path
+|D2=string
+|P3=width
+|D3=number
+|P4=height
+|D4=number
+|R=
+|Desc=
+{{i18n
+|en=
+	Load a TTF font resource.
+
+*	'''path''' specifies path of font file.
+
+*	(P) '''width, height''' specifies width and height of font.
+
+*	(X) '''width''' specifies size of font.
+|zh=
+	加载TTF字体资源。
+
+*	'''path''' 指定字体文件的路径。
+
+*	(P) '''width, height''' 指定字体的宽度和高度。
+
+*	(X) '''width''' 指定字体的大小。
+}}
+}}
+{{APIDoc
+|Name=LoadSound
+|P1=name
+|D1=string
+|P2=path
+|D2=string
+|R=
+|Desc=
+{{i18n
+|en=
+	Load a sound resource.
+
+*	(P) Supports WAV and OGG format. WAV format is recommended.
+
+*	(X) Supports WAV, OGG, MP3 and FLAC format. WAV format is recommended.
+
+;	Detail
+:		Sound resource will be loaded into memory entirely. Please avoid using big audio files.
+:		WAV file of non-standard or compressed format is not supported.
+|zh=
+	加载音效资源。
+
+*	(P) 支持 WAV 和 OGG 格式。推荐 WAV 格式。
+
+*	(X) 支持 WAV, OGG, MP3 和 FLAC 格式。推荐 WAV 格式。
+
+;	细节
+:		音效资源将被整体加载进内存。请勿使用较大的音频文件。
+:		不支持非标准的或压缩格式的 WAV 文件。
+}}
+}}
+{{APIDoc
+|Name=LoadMusic
+|P1=name
+|D1=string
+|P2=path
+|D2=string
+|P3=loop_end
+|D3=number
+|P4=loop_duration
+|D4=number
+|R=
+|Desc=
+{{i18n
+|en=
+	Load a music resource.
+
+*	'''loop_end, loop_duration''' specifies end time and length of repeat section in seconds. The repeat range will be '''loop_end-loop_duration''' to '''loop_end'''.
+
+*	(P) Supports WAV and OGG format. OGG format is recommended.
+
+*	(X) Supports WAV, OGG, MP3 and FLAC format. OGG format is recommended.
+
+;	Detail
+:		Music resource will not be loaded into memory entirely.
+:		The repeat function is implemented by decoder so it's completely seamless.
+|zh=
+	加载音乐资源。
+
+*	'''loop_end, loop_duration''' 指定循环节的结束和时长，单位为秒。循环范围为 '''loop_end-loop_duration''' 至 '''loop_end'''。
+
+*	(P) 支持 WAV 和 OGG 格式。推荐 OGG 格式。
+
+*	(X) 支持 WAV, OGG, MP3 和 FLAC 格式。推荐 OGG 格式。
+
+;	细节
+:		音乐资源不会被整体加载进内存。
+:		循环功能由解码器实现，因此是无缝的。
+}}
+}}
+{{APIDoc
+|Name=LoadFX
+|P1=name
+|D1=string
+|P2=path
+|D2=string
+|R=
+|Ver=+
+|Desc=
+{{i18n
+|en=
+	Load a shader resource.
+
+	'''path''' specifies path of FX format file.
+|zh=
+	加载着色器资源。
+
+	'''path''' 指定 FX 文件的路径。
+}}
+}}
+{{APIDoc
+|Name=LoadFX
+|P1=name
+|D1=string
+|P2=fShader
+|D2=string [optional]
+|P3=vShader
+|D3=string [optional]
+|P4=isString
+|D4=boolean [optional]
+|R=
+|Ver=x
+|Desc=
+{{i18n
+|en=
+	Load a shader resource.
+
+*	'''fShader''' specifies path or content of fragment shader. Will be default fragment shader if got '''nil'''.
+
+*	'''vShader''' specifies path of content of vertex shader. Will be default vertex shader if got '''nil'''.
+
+*	'''isString''' specifies if '''fShader''' and '''vShader''' is string content rather than path.
+|zh=
+	加载着色器资源。
+
+*	'''fShader''' 指定像素着色器的路径或内容。传入 '''nil''' 时将使用默认像素着色器。
+
+*	'''vShader''' 指定顶点着色器的路径或内容。传入 '''nil''' 时将使用默认顶点着色器。
+
+*	'''isString''' 指定 '''fShader''' 和 '''vShader''' 是字符串内容还是路径。
+}}
+}}
+{{APIDoc
+|Name=CreateRenderTarget
+|P1=name
+|D1=string
+|R=
+|Desc=
+{{i18n
+|en=
+	Create a [[Render Target|render target]].
+
+*	(P) Will be treated as a texture resource.
+|zh=
+	创建[[Render Target|渲染目标]]。
+
+*	(P) 将作为纹理资源使用。
+}}
+}}
+{{APIDoc
+|Name=IsRenderTarget
+|P1=name
+|D1=string
+|R=
+|Dep=1
+|Desc=
+{{i18n
+|en=
+	(P) Check if a texture resource is a render target.
+
+	(X) Check if a render target resource exists.
+|zh=
+	(P) 检查纹理资源是否为渲染目标。
+
+	(X) 检查渲染目标资源是否存在。
+}}
+}}
+
+=== Render ===
+
+{{i18n
+|en=;
+
+* The engine uses Cartesian coordinate system as screen coordinate system, which means right and up are positive direction. The original point is the left-bottom of screen.
+
+* There is a global scale factor for rendering. It will affect some render functions.
+
+* Z-buffer will not be enabled by default.
+
+* All render functions must be invoked in '''RenderFunc''' ('''render()''' callback of game class).
+
+* A render target cannot be rendered when under using.
+|zh=;
+
+* 引擎使用笛卡尔坐标系作为窗口坐标系，右和上为正方向，原点为屏幕左下角。
+
+* 引擎提供一个全局渲染缩放系数，会影响一些渲染函数。
+
+* 引擎默认关闭深度缓冲。
+
+* 所有渲染函数必须在 '''RenderFunc'''（'''render()''' 回调）中调用。
+
+* 渲染目标在使用中不能被渲染。
+}}
+{{APIDoc
+|Name=BeginScene
+|R=
+|Desc=
+{{i18n
+|en=
+	Notice engine the beginning of rendering. Must invoked in '''RenderFunc'''.
+	
+	All render functions should be invoked between '''BeginScene''' and '''EndScene'''.
+|zh=
+	通知引擎渲染开始。必须在 '''RenderFunc''' 中调用。
+	
+	所有渲染函数必须在 '''BeginScene''' 和 '''EndScene''' 之间调用。
+}}
+}}
+{{APIDoc
+|Name=EndScene
+|R=
+|Desc=
+{{i18n
+|en=
+	Notice engine the ending of rendering. Must invoked in '''RenderFunc'''.
+|zh=
+	通知引擎渲染结束。必须在 '''RenderFunc''' 中调用。
+}}
+}}
+{{APIDoc
+|Name=RenderClear
+|P1=lstg::Color
+|R=
+|Desc=
+{{i18n
+|en=
+	Clear screen with specified color. Will also clear z-buffer if enabled.
+|zh=
+	使用指定颜色清空屏幕。同时会清除深度缓冲区（若启用）。
+}}
+}}
+{{APIDoc
+|Name=SetViewport
+|P1=left
+|D1=number
+|P2=right
+|D2=number
+|P3=bottom
+|D3=number
+|P4=top
+|D4=number
+|R=
+|Desc=
+{{i18n
+|en=
+	Set viewport. Will affect clipping and rendering.
+|zh=
+	设置视口。将影响裁剪和渲染。
+}}
+}}
+{{APIDoc
+|Name=SetOrtho
+|P1=left
+|D1=number
+|P2=right
+|D2=number
+|P3=bottom
+|D3=number
+|P4=top
+|D4=number
+|R=
+|Desc=
+{{i18n
+|en=
+	Set orthogonal projection.
+
+;	Detail
+:		(P) Z range will be [0, 1].
+:		(X) Z range will be [-1024, 1024].
+|zh=
+	设置正交投影。
+
+;	细节
+:		(P) Z 范围为 [0, 1]。
+:		(X) Z 范围为 [-1024, 1024]。
+}}
+}}
+{{APIDoc
+|Name=SetPerspective
+|P1=eyeX, eyeY, eyeZ
+|D1=number, number, number
+|P2=atX, atY, atZ
+|D2=number, number, number
+|P3=upX, upY, upZ
+|D3=number, number, number
+|P4=fovy
+|D4=number
+|P5=aspect
+|D5=number
+|P6=zn
+|D6=number
+|P7=zf
+|D7=number
+|R=
+|Desc=
+{{i18n
+|en=
+	Set perspective projection.
+
+*	'''(eyeX, eyeY, eyeZ)''' specifies eye position.
+
+*	'''(atX, atY, atZ)''' specifies target position.
+
+*	'''(upX,upY,upZ)''' specifies up vector.
+
+*	'''fovy''' specifies field of view in radians.
+
+*	'''aspect''' specifies aspect ratio.
+
+*	'''zn, zf''' specifies z-near and z-far plane.
+|zh=
+	设置透视投影。
+
+*	'''(eyeX, eyeY, eyeZ)''' 指定观察者位置。
+
+*	'''(atX, atY, atZ)''' 指定观察目标位置。
+
+*	'''(upX,upY,upZ)''' 指定观察者的上方向。
+
+*	'''fovy''' 指定视角范围（弧度）
+
+*	'''aspect''' 指定宽高比。
+
+*	'''zn, zf''' 指定Z轴近平面和远平面。
+}}
+}}
+{{APIDoc
+|Name=Render
+|P1=image_name
+|D1=string
+|P2=x
+|D2=number
+|P3=y
+|D3=number
+|P4=rot
+|D4=number [optional]
+|P5=hscale
+|D5=number [optional]
+|P6=vscale
+|D6=number [optional]
+|P7=z
+|D7=number [optional]
+|R=
+|Desc=
+{{i18n
+|en=
+	Render an image resource.
+
+*	'''(x, y)''' specifies position of image center.
+
+*	'''rot''' specifies rotation in radians. Default is '''0'''.
+
+*	'''(hscale, vscale)''' specifies horizontal and verticle scale. Default of '''hscale''' is '''1'''. '''vscale''' will be same as '''hscale''' if only '''hscale''' is assigned.
+
+*	'''z''' specifies z coordinate. Default is '''0.5'''.
+
+	Will be affected by the global scale factor.
+|zh=
+	渲染图像资源。
+
+*	'''(x, y)''' 指定图像中心的位置。
+
+*	'''rot''' 指定旋转，单位为弧度。默认为 '''0'''。
+
+*	'''(hscale, vscale)''' 指定水平和垂直方向的缩放。若只指定了 '''hscale'''，'''vscale''' 将与 '''hscale''' 相同。
+
+*	'''z''' 指定Z坐标。默认为 '''0.5'''。
+
+	受全局缩放系数影响。
+}}
+}}
+{{APIDoc
+|Name=RenderRect
+|P1=image_name
+|D1=string
+|P2=left
+|D2=number
+|P3=right
+|D3=number
+|P4=bottom
+|D4=number
+|P5=top
+|D5=number
+|R=
+|Desc=
+{{i18n
+|en=
+	Render an image resource in the specified rectangle. Z coordinate will be '''0.5'''.
+|zh=
+	将图像资源渲染到指定的矩形。此时Z坐标为 '''0.5'''。
+}}
+}}
+{{APIDoc
+|Name=Render4V
+|P1=image_name
+|D1=string
+|P2=x1, y1, z1
+|D2=number, number,number
+|P3=x2, y2, z2
+|D3=number, number,number
+|P4=x3, y3, z3
+|D4=number, number,number
+|P5=x4, y4, z4
+|D5=number, number,number
+|R=
+|Desc=
+{{i18n
+|en=
+	Render an image resource in specified vertex positions.
+|zh=
+	将图像资源渲染到指定的顶点位置。
+}}
+}}
+{{APIDoc
+|Name=SetFog
+|R=
+|Desc=
+{{i18n
+|en=
+	Clear fog effect.
+|zh=
+	清除雾效果。
+}}
+}}
+{{APIDoc
+|Name=SetFog
+|P1=near
+|D1=number
+|P2=far
+|D2=number
+|P3=color
+|D3=lstg::Color [optional] Default is '''0x00FFFFFF'''.
+|R=
+|Desc=
+{{i18n
+|en=
+	Set fog effect.
+
+*	If '''near''' is '''-1''', EXP1 algorism will be used and '''far''' will be density parameter.
+
+*	If '''near''' is '''-2''', EXP2 algorism will be used and '''far''' will be density parameter.
+
+*	Otherwise, linear algorism will be used and '''near, far''' will be range parameter.
+|zh=
+	设置清除雾效果。
+
+*	若 '''near''' 为 '''-1'''，将使用 EXP1 算法且 '''far''' 为强度参数。
+
+*	若 '''near''' 为 '''-2'''，将使用 EXP2 算法且 '''far''' 为强度参数。
+
+*	否则，将使用线性算法且 '''near, far''' 为范围参数。
+}}
+}}
+{{APIDoc
+|Name=RenderText
+|P1=name
+|D1=string
+|P2=text
+|D2=string
+|P3=x
+|D3=number
+|P4=y
+|D4=number
+|P5=scale
+|D5=number [optional]
+|P6=align
+|D6=number [optional]
+|R=
+|Desc=
+{{i18n
+|en=
+	Render a texture font resource.
+
+*	'''text''' specifies text to render.
+
+*	'''(x, y)''' specifies position.
+
+*	'''scale''' specifies scale. Default is '''1'''.
+
+*	'''align''' specifies alignment. Default is '''5'''.
+
+	Will be affected by the global scale factor.
+
+;	Detail
+:		Values for '''align''':
+::			LT: 0 / MT: 1 / RT: 2
+::			LM: 4 / MM: 5 / RM: 6
+::			LB: 8 / MB: 9 / RB: 10
+
+* This function is overwritten in core script and has different parameters.
+|zh=
+	渲染纹理字体资源。
+
+*	'''text''' 指定要渲染的文字。
+
+*	'''(x, y)''' 指定位置。
+
+*	'''scale''' 指定缩放。默认为 '''1'''。
+
+*	'''align''' 指定对齐模式。默认为 '''5'''。
+
+	受全局缩放系数影响。
+
+;	细节
+:		'''align''' 可取值:
+::			左上: 0 / 中上: 1 / 右上: 2
+::			左中: 4 / 中中: 5 / 右中: 6
+::			左下: 8 / 中下: 9 / 右下: 10
+
+* 该函数已在核心脚本中被覆盖并具有不同的参数。
+}}
+}}
+{{APIDoc
+|Name=RenderTexture
+|P1=tex_name
+|D1=string
+|P2=blend
+|D2=string
+|P3=vertex1
+|D3=table
+|P4=vertex2
+|D4=table
+|P5=vertex3
+|D5=table
+|P6=vertex4
+|D6=table
+|R=
+|Desc=
+{{i18n
+|en=
+	Render a texture resource.
+
+;	Detail
+:		vertex1-4 specify vertices and should have following fields:
+::			[1] = X coordinate
+::			[2] = Y coordinate
+::			[3] = Z coordinate
+::			[4] = U coordinate (in pixels)
+::			[5] = V coordinate (in pixels)
+::			[6] = color
+|zh=
+	渲染纹理资源。
+
+;	细节
+:		vertex1-4 指定各个顶点，需包含以下成员:
+::			[1] = X 坐标
+::			[2] = Y 坐标
+::			[3] = Z 坐标
+::			[4] = U 坐标（像素）
+::			[5] = V 坐标（像素）
+::			[6] = 颜色
+}}
+}}
+{{APIDoc
+|Name=RenderTTF
+|P1=name
+|D1=string
+|P2=text
+|D2=string
+|P3=left
+|D3=number
+|P4=right
+|D4=number
+|P5=bottom
+|D5=number
+|P6=top
+|D6=number
+|P7=format
+|D7=number
+|P8=color
+|D8=lstg::Color
+|P9=scale
+|D9=number [optional]
+|R= 
+|Desc=
+{{i18n
+|en=
+	Render a TTF font resource.
+
+*	'''name''' specifies name of font resource.
+
+*	'''text''' specifies text to render.
+
+*	'''left, right, bottom, top''' specifies a box that text will be rendered into.
+
+*	'''format''' specifies how text is aligned in the box.
+
+*	'''color''' specifies blend color.
+
+*	'''scale''' specifies scale. This value will be multiplied by 0.5 in the engine. Default is '''1'''.
+
+	(X) Will use values from resource if '''format''' and subsequent parameters are omitted.
+
+	Will be affected by the global scale factor.
+
+* This function is overwritten in core script and has different parameters.
+|zh=
+	渲染TTF字体资源。
+
+*	'''name''' 指定字体资源的名称。
+
+*	'''text''' 指定要渲染的文本。
+
+*	'''left, right, bottom, top''' 指定文本要被渲染到的矩形。
+
+*	'''format''' 指定文本如何在矩形内对齐。
+
+*	'''color''' 指定混合颜色。
+
+*	'''scale''' 指定缩放。该值将在引擎内部乘以0.5。默认为 '''1'''。
+
+	(X) 若省略 '''format''' 以及之后的参数，将使用资源的参数。
+
+	受全局缩放系数影响。
+
+* 该函数已在核心脚本中被覆盖并具有不同的参数。
+}}
+}}
+
+=== Post Effect ===
+
+{{APIDoc
+|Name=PushRenderTarget
+|P1=name
+|D1=string
+|R=
+|Desc=
+{{i18n
+|en=
+	Push a render target into render target stack and use it as render output.
+
+;	Detail
+:		Render targets are managed by a stack so it's possible to use them nestedly.
+
+	Usages should satisfy:
+:		'''PushRenderTarget(name)'''
+:		'''...'''
+:		'''PopRenderTarget()'''
+|zh=
+	将一个渲染目标入栈并作为渲染输出。
+
+;	细节
+:		渲染目标由一个堆栈进行管理，可以嵌套使用。
+
+	使用时需满足:
+:		'''PushRenderTarget(name)'''
+:		'''...'''
+:		'''PopRenderTarget()'''
+}}
+}}
+{{APIDoc
+|Name=PopRenderTarget
+|R= 
+|Desc=
+{{i18n
+|en=
+	Pop a render target from render target stack.
+|zh=
+	将一个渲染目标出栈。
+}}
+}}
+{{APIDoc
+|Name=PostEffect
+|P1=name
+|D1=string
+|P2=fx_name
+|D2=string
+|P3=blend
+|D3=string
+|P4=args
+|D4=table [optional]
+|R=
+|Desc=
+{{i18n
+|en=
+	Apply post effect and render result. Values in '''args''' will be passed to shader.
+
+	'''blend''' specifies blend mode used for result rendering.
+
+;	Detail
+:		(P) Only the first 'technique' will be used in the shader.
+:		(P) Preset values can be get by following annotations:
+:		(X) Preset values can be get by following uniforms:
+::			(P) POSTEFFECTTEXTURE: texture to apply effect (texture2d)
+::			(X) u_texture: texture to apply effect (sampler2D)
+::			VIEWPORT: size of viewport (float4)
+::			SCREENSIZE: size of screen (float4)
+|zh=
+	应用后处理并将渲染结果。'''args''' 中的值将传递给着色器。
+
+	'''blend''' 指定渲染结果使用的渲染模式。
+
+;	细节
+:		(P) 只有着色器中的第一个 technique 会被使用。
+:		(P) 预设值可以通过以下 annotations 取得:
+:		(X) 预设值可以通过以下 uniform 取得:
+::			(P) POSTEFFECTTEXTURE: 要应用效果的纹理 (texture2d)
+::			(X) u_texture: 要应用效果的纹理 (sampler2D)
+::			VIEWPORT: 视口大小 (float4)
+::			SCREENSIZE: 屏幕大小 (float4)
+}}
+}}
+{{APIDoc
+|Name=PostEffectCapture
+|R=
+|Dep=1
+|Desc=
+{{i18n
+|en=
+	A shortcut to begin post effect.
+
+	Equivalent to:
+:		'''PushRenderTarget(InternalRenderTarget)'''
+|zh=
+	开始后处理的快捷函数。
+
+	等价于:
+:		'''PushRenderTarget(InternalRenderTarget)'''
+}}
+}}
+{{APIDoc
+|Name=PostEffectApply
+|P1=fx_name
+|D1=string
+|P2=blend
+|D2=string
+|P3=args
+|D3=table [optional]
+|R=
+|Dep=1
+|Desc=
+{{i18n
+|en=
+	A shortcut to finish post effect. An internal render target is used.
+
+	Equivalent to:
+:		'''PopRenderTarget(InternalRenderTarget)'''
+:		'''PostEffect(InternalRenderTarget, fx_name, blend, args)'''
+
+	Usages should satisfy:
+:		'''PostEffectCapture()'''
+:		'''...'''
+:		'''PostEffectApply(...)'''
+|zh=
+	结束后处理的快捷函数。会使用一个内置的渲染目标。
+
+	等价于:
+:		'''PopRenderTarget(InternalRenderTarget)'''
+:		'''PostEffect(InternalRenderTarget, fx_name, blend, args)'''
+
+	使用时需满足:
+:		'''PostEffectCapture()'''
+:		'''...'''
+:		'''PostEffectApply(...)'''
+}}
+}}
+
+=== Sound ===
+
+{{APIDoc
+|Name=PlaySound
+|P1=name
+|D1=string
+|P2=vol
+|D2=number
+|P3=pan
+|D3=number [optional]
+|R=
+|Desc=
+{{i18n
+|en=
+	Play a sound resource.
+
+*	'''vol''' specifies volume, the range is [0, 1].
+
+*	'''pan''' specifies channel balance, the range is [-1, 1]. Default is '''0'''.
+
+;	Detail
+:		A sound resource will be interrupted if it's played again.
+|zh=
+	播放音效资源。
+
+*	'''vol''' 指定音量，范围为 [0, 1]。
+
+*	'''pan''' 指定通道平衡，范围为 [-1, 1]。 默认为 '''0'''。
+
+;	细节
+:		音效资源重复播放时会被中断。
+}}
+}}
+{{APIDoc
+|Name=StopSound
+|P1=name
+|D1=string
+|R=
+|Desc=
+{{i18n
+|en=
+	Stop a sound resource.
+|zh=
+	停止播放音效资源。
+}}
+}}
+{{APIDoc
+|Name=PauseSound
+|P1=name
+|D1=string
+|R=
+|Desc=
+{{i18n
+|en=
+	Pause a sound resource.
+|zh=
+	暂停播放音效资源。
+}}
+}}
+{{APIDoc
+|Name=ResumeSound
+|P1=name
+|D1=string
+|R=
+|Desc=
+{{i18n
+|en=
+	Resume a sound resource.
+|zh=
+	恢复播放音效资源。
+}}
+}}
+{{APIDoc
+|Name=GetSoundState
+|P1=name
+|D1=string
+|R=string
+|Desc=
+{{i18n
+|en=
+	Returns status of a sound resource. Will return "paused", "playing" or "stopped".
+|zh=
+	返回音效资源的状态，将返回 "paused", "playing" 或 "stopped"。
+}}
+}}
+{{APIDoc
+|Name=PlayMusic
+|P1=name
+|D1=string
+|P2=vol
+|D2=number [optional]
+|P3=position
+|D3=number [optional]
+|R=
+|Desc=
+{{i18n
+|en=
+	Play a music resource.
+
+*	'''vol''' specifies volume, the range is [0, 1]. Default is '''1'''.
+
+*	'''position''' specifies start position in seconds. Default is '''0'''.
+|zh=
+	播放音乐资源。
+
+*	'''vol''' 指定音量，范围为 [0, 1]。默认为 '''1'''.
+
+*	'''position''' 指定播放的起始位置，单位为秒。默认为 '''0'''.
+}}
+}}
+{{APIDoc
+|Name=StopMusic
+|P1=name
+|D1=string
+|R=
+|Desc=
+{{i18n
+|en=
+	Stop a music resource. Will set playback position to the beginning.
+|zh=
+	停止播放音乐资源。会使播放位置回到开头。
+}}
+}}
+{{APIDoc
+|Name=PauseMusic
+|P1=name
+|D1=string
+|R=
+|Desc=
+{{i18n
+|en=
+	Pause a music resource.
+|zh=
+	暂停播放音乐资源。
+}}
+}}
+{{APIDoc
+|Name=ResumeMusic
+|P1=name
+|D1=string
+|R=
+|Desc=
+{{i18n
+|en=
+	Resume a music resource.
+|zh=
+	恢复播放音乐资源。
+}}
+}}
+{{APIDoc
+|Name=GetMusicState
+|P1=name
+|D1=string
+|R=string
+|Desc=
+{{i18n
+|en=
+	Returns status of a music resource. Will return "paused", "playing" or "stopped".
+|zh=
+	返回音乐资源的状态，将返回 "paused", "playing" 或 "stopped"。
+}}
+}}
+{{APIDoc
+|Name=SetSEVolume
+|P1=vol
+|D1=number
+|R=
+|Desc=
+{{i18n
+|en=
+	Set global volume factor for sound resources. The value will be multiplied to '''vol''' parameter of '''PlaySound'''. Will not affect playing sounds.
+
+*	(P) '''vol''' should in range [0, 1].
+|zh=
+	设置音效资源的全局音量系数。值会乘到 '''PlaySound''' 的 '''vol''' 参数上。不会影响正在播放的音效。
+
+*	(P) '''vol''' 范围为 [0, 1]。
+}}
+}}
+{{APIDoc
+|Name=SetSEVolume
+|P1=name
+|D1=string
+|P2=vol
+|D2=number
+|R=
+|Ver=x
+|Desc=
+{{i18n
+|en=
+	Set volume of specified sound resource. Will affect playing sounds.
+
+*	'''vol''' should in range [0, 1].
+|zh=
+	设置指定音效资源的音量。会影响正在播放的音效。
+
+*	'''vol''' 范围为 [0, 1]。
+}}
+}}
+{{APIDoc
+|Name=SetBGMVolume
+|P1=vol
+|D1=number
+|R=
+|Desc=
+{{i18n
+|en=
+	Set global volume factor for music resources. The value will be multiplied to '''vol''' parameter of '''PlayMusic'''. Will not affect playing musics.
+
+*	(P) '''vol''' should in range [0, 1].
+|zh=
+	设置音乐资源的全局音量系数。值会乘到 '''PlayMusic''' 的 '''vol''' 参数上。不会影响正在播放的音乐。
+
+*	(P) '''vol''' 范围为 [0, 1]。
+}}
+}}
+{{APIDoc
+|Name=SetBGMVolume
+|P1=name
+|D1=string
+|P2=vol
+|D2=number
+|R=
+|Desc=
+{{i18n
+|en=
+	Set volume of specified music resource. Will affect playing musics.
+
+*	'''vol''' should in range [0, 1].
+|zh=
+	设置指定音乐资源的音量。会影响正在播放的音效。
+
+*	'''vol''' 范围为 [0, 1]。
+}}
+}}
+
+=== Input ===
+
+{{i18n
+|en=
+(P) Gamepad input is mapped to code 0x92 - 0xB1.
+
+(X) Gamepad input is mapped dynamically to existing codes.
+|zh=
+(P) 手柄输入被映射到 0x92 - 0xB1 的键码。
+
+(X) 手柄输入被动态映射到已有的键码。
+}}
+{{APIDoc
+|Name=GetKeyState
+|P1=code
+|D1=number
+|R=boolean
+|Desc=
+{{i18n
+|en=
+	Check if key corresponding to '''code''' is pressed.
+
+;	Detail
+*		(P) '''code''' is '''VK_CODE''' defined by microsoft.
+*		(X) '''code''' is '''EventKeyboard::KeyCode''' defined by cocos2d-x.
+|zh=
+	检查 '''code''' 对应的按键是否被按下。
+
+;	细节
+*		(P) '''code''' 为微软定义的 '''VK_CODE'''。
+*		(X) '''code''' 为cocos2d-x定义的 '''EventKeyboard::KeyCode'''。
+}}
+}}
+{{APIDoc
+|Name=GetLastKey
+|R=number
+|Desc=
+{{i18n
+|en=
+	Returns code of last pressed key.
+|zh=
+	返回上一次按下的按键的键码。
+}}
+}}
+{{APIDoc
+|Name=GetLastChar
+|R=string
+|Dep=1
+|Desc=
+{{i18n
+|en=
+*	(P) Returns last input char.
+
+*	(X) Do nothing.
+|zh=
+*	(P) 返回上一次输入的字符。
+
+*	(X) 无作用。
+}}
+}}
+{{APIDoc
+|Name=GetMousePosition
+|R=number,number
+|Desc=
+{{i18n
+|en=
+	(P) Get mouse position in pixels starts from the bottom left of the window.
+
+	(X) Get mouse position in screen coordinates starts from the bottom left of the window.
+|zh=
+	(P) 获取鼠标的位置，以窗口左下角为原点，单位为像素。
+
+	(X) 获取鼠标在屏幕坐标系的位置，以窗口左下角为原点。
+}}
+}}
+{{APIDoc
+|Name=GetMouseState
+|P1=button
+|D1=number
+|R=boolean
+|Desc=
+{{i18n
+|en=
+	Check if mouse button is pressed.
+
+*	'''button''' specifies button to check. 0/1/2 correspond to left/middle/right.
+|zh=
+	检查鼠标按键是否被按下。
+
+*	'''button''' 指定要检查的按键。0/1/2分别对应左/中/右。
+}}
+}}
+
+=== Misc ===
+
+{{APIDoc
+|Name=Snapshot
+|P1=file_path
+|D1=string
+|R=
+|Desc=
+{{i18n
+|en=
+	Take a snapshot of screen and save to '''file_path''' in PNG format.
+|zh=
+	截取屏幕并以PNG格式保存到 '''file_path'''。
+}}
+}}
+{{APIDoc
+|Name=Execute
+|P1=path
+|D1=string
+|P2=arguments
+|D2=string [optional]
+|P3=directory
+|D3=string [optional]
+|P4=wait
+|D4=boolean [optional] Default is '''true'''.
+|R=boolean
+|Ver=+
+|Desc=
+{{i18n
+|en=
+	Execute an external program at '''path'''.
+
+	Returns '''true''' on success, '''false''' on failure.
+|zh=
+	执行位于 '''path''' 的外部程序。
+
+	成功时返回 '''true'''，失败时返回 '''false'''。
+}}
+}}
+
+=== Math ===
+
+{{i18n
+|en=The following trigonometric functions accept or return degree values.
+|zh=以下三角函数均接受或返回角度值。
+}}
+{{APIDoc
+|Name=sin
+|P1=ang
+|R=
+|Desc=}}
+{{APIDoc
+|Name=cos
+|P1=ang
+|R=
+|Desc=}}
+{{APIDoc
+|Name=asin
+|P1=v
+|R=
+|Desc=}}
+{{APIDoc
+|Name=acos
+|P1=v
+|R=
+|Desc=}}
+{{APIDoc
+|Name=tan
+|P1=ang
+|R=
+|Desc=}}
+{{APIDoc
+|Name=atan
+|P1=v
+|R=
+|Desc=}}
+{{APIDoc
+|Name=atan2
+|P1=y
+|P2=x
+|R=
+|Desc=
+}}
+
+=== Class Constructor ===
+
+{{APIDoc
+|Name=Rand
+|R='''RNG'''
+|Desc=
+{{i18n
+|en=
+	Create a '''RNG''' object.
+|zh=
+	创建 '''RNG''' 对象。
+}}
+}}
+{{APIDoc
+|Name=Color
+|P1=argb
+|D1=number
+|R=lstg::Color
+|Desc=
+{{i18n
+|en=
+	Create a '''Color''' object.
+|zh=
+	创建 '''Color''' 对象。
+}}
+}}
+{{APIDoc
+|Name=Color
+|P1=a
+|D1=number
+|P2=r
+|D2=number
+|P3=g
+|D3=number
+|P4=b
+|D4=number
+|R=lstg::Color
+|Desc=
+{{i18n
+|en=
+	Create a '''Color''' object.
+|zh=
+	创建 '''Color''' 对象。
+}}
+}}
+{{APIDoc
+|Name=BentLaserData
+|R='''BentLaserData'''
+|Desc=
+{{i18n
+|en=
+	Create a '''BentLaserData''' object.
+|zh=
+	创建 '''BentLaserData''' 对象。
+}}
+}}
+
+=== Debug ===
+
+{{APIDoc
+|Name=ObjTable
+|R=table
+|Desc=
+{{i18n
+|en=
+	Returns the table where game objects are stored.
+|zh=
+	返回所有游戏对象所在的table。
+}}
+}}
+
+=== Global Callback ===
+
+{{i18n
+|en=Following functions should be defined in global space and will be invoked by the engine. '''They are already defined in the core script.'''
+|zh=以下函数必须定义在脚本的全局范围，并将被引擎调用。'''这些函数已经在核心脚本中定义。'''
+}}
+{{APIDoc
+|Name=GameInit
+|R=
+|Desc=
+{{i18n
+|en=
+	Will be invoked after the initialization of engine finished.
+|zh=
+	在引擎初始化结束后调用。
+}}
+}}
+{{APIDoc
+|Name=FocusLoseFunc
+|R=
+|Desc=
+{{i18n
+|en=
+	Will be invoked when the window lose focus.
+|zh=
+	在窗口失去焦点时调用。
+}}
+}}
+{{APIDoc
+|Name=FocusGainFunc
+|R=
+|Desc=
+{{i18n
+|en=
+	Will be invoked when the window get focus.
+|zh=
+	在窗口获得焦点时调用。
+}}
+}}
+{{APIDoc
+|Name=FrameFunc
+|R=boolean
+|Desc=
+{{i18n
+|en=
+	Will be invoked every frame to process all frame logic.
+
+	Game will exit if it returns '''true'''.
+|zh=
+	会被每帧调用以处理帧逻辑。
+
+	当返回 '''true''' 时游戏将退出。
+}}
+}}
+{{APIDoc
+|Name=RenderFunc
+|R=
+|Desc=
+{{i18n
+|en=
+	Will be invoked every frame to process all render instructions.
+|zh=
+	会被每帧调用以处理渲染指令。
+}}
+}}
+
+=== Color Class ===
+
+{{i18n
+|en=
+'''lstg::Color''' ('''Color''' for short) class is used to represent a 32-bit color. The a/r/g/b component represents alpha/red/green/blue value.
+
+* '''Color''' object can be constructed by '''Color()'''.
+* Components a, r, g, b are in range [0, 255].
+* Components will be clamped to [0, 255] when performing arithmetic operation if not specified.
+* (X) Components can be accessed and assigned by field '''a''', '''r''', '''g''', '''b'''.
+* (X) 32-bit value can be accessed and assigned by field '''argb'''.
+* (X) Other methods and custom constructor are extended in Lua scripts. Please refer to the document or source code of LuaSTG-x.
+* A '''Color''' object is a Lua '''userdata'''.
+|zh=
+'''lstg::Color''' (简记为'''Color''') 类用于表示32位颜色。a/r/g/b 分量分别表示透明度/红/绿/蓝的值。
+
+* '''Color''' 对象可以通过 '''Color()''' 创建。
+* 分量 a, r, g, b 范围为 [0, 255]。
+* 如无特殊说明，在数值计算时分量会被限制在 [0, 255]。
+* (X) 分量可以通过 '''a''', '''r''', '''g''', '''b''' 属性读写。
+* (X) 32位值可以通过 '''argb''' 属性读写。
+* (X) 在Lua脚本中扩展了其他方法和自定义构造函数。请参考LuaSTG-x的文档或源码。
+* '''Color''' 对象是 Lua 中的 '''userdata'''。
+}}
+{{APIDoc
+|Name=ARGB
+|R=number, number, number, number
+|Member=1
+|Desc=
+{{i18n
+|en=
+	Returns a, r, g, b components respectively.
+|zh=
+	分别返回 a, r, g, b 分量。
+}}
+}}
+{{APIDoc
+|Name=unpack
+|R=number, number, number, number
+|Member=1
+|Ver=x
+|Desc=
+{{i18n
+|en=
+	Returns r, g, b, a components respectively.
+|zh=
+	分别返回 r, g, b, a 分量。
+}}
+}}
+{{APIDoc
+|Name=unpackFloat
+|R=number, number, number, number
+|Member=1
+|Ver=x
+|Desc=
+{{i18n
+|en=
+	Returns r, g, b, a components scaled to [0, 1] respectively.
+|zh=
+	分别返回缩放到 [0, 1] 的 r, g, b, a 分量。
+}}
+}}
+{{APIDoc
+|Name=set
+|P1=R
+|D1=number
+|P2=G
+|D2=number
+|P3=B
+|D3=number
+|P4=A
+|D4=number [optional]
+|R=Color
+|Member=1
+|Ver=x
+|Desc=
+{{i18n
+|en=
+	Set values of components. Alpha component is optional. Returns '''self'''.
+|zh=
+	设置分量的值。透明度分量是可选的。返回 '''self'''。
+}}
+}}
+{{APIDoc
+|Name=setFloat
+|P1=R
+|D1=number
+|P2=G
+|D2=number
+|P3=B
+|D3=number
+|P4=A
+|D4=number [optional]
+|R=Color
+|Member=1
+|Ver=x
+|Desc=
+{{i18n
+|en=
+	Set values of components in range [0, 1]. Alpha component is optional. Returns '''self'''.
+|zh=
+	以 [0, 1] 范围设置分量的值。透明度分量是可选的。返回 '''self'''。
+}}
+}}
+{{APIDoc
+|Name=clone
+|R=Color
+|Desc=
+{{i18n
+|en=
+	Returns a clone of the color object.
+|zh=
+	返回颜色对象的副本。
+}}
+}}
+{{APIDoc
+|Name=(meta)__eq
+|P1=lhs
+|D1=Color
+|P2=rhs
+|D2=Color
+|R=boolean
+|Desc=
+{{i18n
+|en=
+	Returns whether two color values are equal.
+|zh=
+	返回两个颜色值是否相等。
+}}
+}}
+{{APIDoc
+|Name=(meta)__add
+|P1=lhs
+|D1=Color
+|P2=rhs
+|D2=Color
+|R=Color
+|Desc=
+{{i18n
+|en=
+	Add two color objects component-wise.
+|zh=
+	将两个颜色对象逐分量相加。
+}}
+}}
+{{APIDoc
+|Name=(meta)__sub
+|P1=lhs
+|D1=Color
+|P2=rhs
+|D2=Color
+|R=Color
+|Desc=
+{{i18n
+|en=
+	Subtract two color objects component-wise.
+|zh=
+	将两个颜色对象逐分量相减。
+}}
+}}
+{{APIDoc
+|Name=(meta)__mul
+|P1=lhs
+|D1=Color/number
+|P2=rhs
+|D2=Color/number
+|R=Color
+|Desc=
+{{i18n
+|en=
+	When passed with two color objects:
+:		Multiply two color values component-wise as if components are in range [0, 1].
+
+	When passed with a color object and a number:
+:		Multiply components with a number.
+|zh=
+	当传入两个颜色对象时:
+:		将两个颜色对象逐分量相乘，分量会被当做 [0, 1] 范围。
+
+	当传入一个颜色对象和一个数值时:
+:		将分量与数值相乘。
+}}
+}}
+{{APIDoc
+|Name=(meta)__tostring
+|P1=self
+|D1=Color
+|R=string
+|Desc=
+{{i18n
+|en=
+	Returns decription of the color objects.
+|zh=
+	返回颜色对象的描述。
+}}
+}}
+
+=== RNG Class ===
+
+{{i18n
+|en=
+'''RNG''' (random number generator) class is used for generating pseudo random number.
+
+* '''RNG''' object can be constructed by '''Rend()'''.
+* '''RNG''' class uses WELL512 algorithm.
+
+Default global '''RNG''' object is implemented by '''lstg::Random''' class in LuaSTG-x and has other extra methods. Please refer to the document or source code of LuaSTG-x.
+|zh=
+'''RNG'''（随机数发生器）类用于生成伪随机数。
+
+* '''RNG''' 对象可以通过 '''Rend()''' 创建。
+* '''RNG''' 类使用 WELL512 算法。
+
+在LuaSTG-x中，默认的全局 '''RNG''' 对象是由 '''lstg::Random''' 类实现的且具有更多方法。请参考LuaSTG-x的文档或源码。
+}}
+{{APIDoc
+|Name=Seed
+|P1=seed
+|D1=number
+|R=
+|Member=1
+|Desc=
+{{i18n
+|en=
+	Set seed. '''seed''' shoule in range [0, 2^32-1].
+|zh=
+	设置随机数种子。'''seed''' 范围为 [0, 2^32-1]。
+}}
+}}
+{{APIDoc
+|Name=GetSeed
+|R=number
+|Member=1
+|Desc=
+{{i18n
+|en=
+	Returns the seed.
+|zh=
+	返回随机数种子。
+}}
+}}
+{{APIDoc
+|Name=Int
+|P1=min
+|D1=number
+|P2=max
+|D2=number
+|R=number
+|Member=1
+|Desc=
+{{i18n
+|en=
+	Returns a random integer in range [min, max]. '''min''' should not be bigger than '''max'''.
+|zh=
+	返回 [min, max] 范围的随机整数。'''min''' 不应大于 '''max'''。
+}}
+}}
+{{APIDoc
+|Name=Float
+|P1=min
+|D1=number
+|P2=max
+|D2=number
+|R=number
+|Member=1
+|Desc=
+{{i18n
+|en=
+	Returns a random float in range [min, max]. '''min''' should not be bigger than '''max'''.
+|zh=
+	返回 [min, max] 范围的随机浮点数。'''min''' 不应大于 '''max'''。
+}}
+}}
+{{APIDoc
+|Name=Sign
+|R=number
+|Member=1
+|Desc=
+{{i18n
+|en=
+	Returns '''1''' or '''-1''' randomly.
+|zh=
+	随机返回 '''1''' 或 '''-1'''。
+}}
+}}
+
+=== BentLaserData Class ===
+
+{{i18n
+|en=
+'''BentLaserData''' class is used to control bent laser (aka curvy laser) function provided by the engine.
+
+* '''BentLaserData''' object can be constructed by '''BentLaserData()'''.
+
+'''BentLaserData''' is implemented by '''lstg::GameObjectBentLaser''' class in LuaSTG-x and has different methods. Please refer to the document or source code of LuaSTG-x.
+|zh=
+'''BentLaserData''' 类用于控制引擎提供的曲线激光功能。
+
+* '''BentLaserData''' 对象可以通过 '''BentLaserData()''' 创建。
+
+在LuaSTG-x中，'''BentLaserData''' 由 '''lstg::GameObjectBentLaser''' 类实现且具有不同的方法。请参考LuaSTG-x的文档或源码。
+}}
+{{i18n
+|en=;Related features
+:	[[Bent Laser]]
+|zh=;相关功能
+:	[[Bent Laser|曲线激光]]
+}}
+{{APIDoc
+|Name=Update
+|P1=obj
+|D1=object
+|P2=length
+|D2=number
+|P3=width
+|D3=number
+|R=
+|Ver=+
+|Member=1
+|Desc=
+{{i18n
+|en=
+	Add a new node to bent laser. Its position will be '''(obj.x, obj.y)'''.
+
+*	'''length''' specifies the limit of node count.
+
+*	'''width''' specifies the width property of node.
+|zh=
+	向曲线激光添加一个新节点。节点位置为 '''(obj.x, obj.y)'''。
+
+*	'''length''' 指定节点数量上限。
+
+*	'''width''' 指定节点的宽度属性。
+}}
+}}
+{{APIDoc
+|Name=Release
+|R=
+|Ver=+
+|Member=1
+|Desc=
+{{i18n
+|en=
+	Legacy of old version. Do nothing.
+|zh=
+	旧版遗留。无作用。
+}}
+}}
+{{APIDoc
+|Name=Render
+|P1=texName
+|D1=string
+|P2=blend
+|D2=string
+|P3=color
+|D3=lstg::Color
+|P4=texLeft
+|D4=number
+|P5=texTop
+|D5=number
+|P6=texWidth
+|D6=number
+|P7=texHeight
+|D7=number
+|P8=scale
+|D8=number
+|R=
+|Ver=+
+|Member=1
+|Desc=
+{{i18n
+|en=
+	Render bent laser.
+
+*	'''texName''' specifies name of texture resource.
+
+*	'''blend''' specifies name of blend mode.
+
+*	'''color''' specifies color of all vertices.
+
+*	'''texLeft, texTop, texWidth, texHeight''' specifies texture coordinates in range [0, 1].
+
+*	'''scale''' specifies the scale apply to each node's width.
+
+	Will be affected by the global scale factor.
+|zh=
+	渲染曲线激光。
+
+*	'''texName''' 指定纹理资源名称。
+
+*	'''blend''' 指定混合模式名称。
+
+*	'''color''' 指定所有顶点的颜色。
+
+*	'''texLeft, texTop, texWidth, texHeight''' 指定纹理坐标，范围为 [0, 1]。
+
+*	'''scale''' 指定每个节点宽度的缩放。
+
+	受全局缩放系数影响。
+}}
+}}
+{{APIDoc
+|Name=CollisionCheck
+|P1=x
+|D1=number
+|P2=y
+|D2=number
+|P3=rot
+|D3=number [optional] Default is '''0'''.
+|P4=a
+|D4=number [optional] Default is '''0'''.
+|P5=b
+|D5=number [optional] Default is '''0'''.
+|P6=rect
+|D6=boolean [optional] Default is '''false'''.
+|R=boolean
+|Ver=+
+|Member=1
+|Desc=
+{{i18n
+|en=
+	Do collision check with a fake game object as if it has given properties.
+
+	Returns '''true''' is there is collision.
+
+;	Detail
+:		Each node will be treated as a circle whose radius is half of the width.
+|zh=
+	与给定的游戏对象属性进行碰撞检测。
+
+	若发生碰撞则返回 '''true''' 。
+
+;	细节
+:		每个节点将被当作一个半径为其宽度一半的圆。
+}}
+}}
+{{APIDoc
+|Name=BoundCheck
+|R=boolean
+|Ver=+
+|Member=1
+|Desc=
+{{i18n
+|en=
+	Check if all nodes' position are in the range set by '''SetBound()'''.
+|zh=
+	检查是否所有节点都在 '''SetBound()''' 设置的范围内。
+}}
+}}

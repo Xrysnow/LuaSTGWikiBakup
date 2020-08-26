@@ -1,0 +1,51 @@
+{{i18n header}}
+{{OldEngineWarning}}
+{{FeatureInfo
+| Version = LuaSTG 0.32+, LuaSTG Boost, LuaSTGPlus, LuaSTGExPlus, LuaSTG-x
+}}
+{{i18n
+|en=
+Bent laser (aka curvy laser) function is controlled by '''BentLaserData''' class. Please refer to [[API Manual]] for methods.
+
+For the sake of brevity, we call the first node of bent laser '''"head"''', the last node '''"tail"'''.
+
+* Bent laser is composed by nodes.
+* Each bent laser can have 512 nodes at most. It can be limited to a smaller number for each one.
+* When node count exceeds limit as you add a node in one side, the node on the other side will be deleted.
+|zh=
+曲线激光功能由 '''BentLaserData''' 类提供。其方法请参考[[API Manual|API手册]]。
+
+为表述方便，将曲线激光的第一个节点称为'''"头部"'''，最后一个节点称为'''"尾部"'''。
+
+* 曲线激光由节点组成。
+* 每条曲线激光最多拥有512个节点。可以为每条曲线激光设置更小的限制。
+* 当在一侧添加节点导致节点数量超出限制时，另一侧的节点将被删除。
+}}
+=== LuaSTGPlus/LuaSTGExPlus ===
+{{i18n
+|en=
+* There are 1024 bent lasers at most.
+* A new node can only be added as head.
+* Properties of a node: position, width.
+* Property of a node can not be changed once it's added.
+|zh=
+* 曲线激光数量上限为1024。
+* 新节点只能作为头部被添加。
+* 节点的属性包括位置和宽度。
+* 一旦添加，节点的属性将不能改变。
+}}
+=== LuaSTG-x ===
+{{i18n
+|en=
+'''BentLaserData''' is implemented by '''lstg::GameObjectBentLaser''' class in LuaSTG-x.
+|zh=
+在LuaSTG-x中，'''BentLaserData''' 由 '''lstg::GameObjectBentLaser''' 类实现。
+}}
+{{i18n
+|en=
+* A new node can only be added as head or tail.
+* Properties of a node: position, width, color.
+|zh=
+* 新节点只能作为头部或尾部被添加。
+* 节点的属性包括位置，宽度和颜色。
+}}

@@ -1,0 +1,425 @@
+{{i18n header}}
+{{OldEngineWarning}}
+{{i18n
+|en=
+Game object is a core feature of LuaSTG engine. It is used to carry most game logic.
+
+A game object contains '''properties''', '''callbacks''' and its own members. It is a Lua table and its properties are accessed through metatable.
+|zh=
+游戏对象是LuaSTG引擎的核心功能之一，用于承载游戏的大多数逻辑。
+
+一个游戏对象包含了'''属性'''和'''回调函数'''，并可以具有自己的成员。其本质是一个Lua中的表，通过元表实现对属性的访问。
+}}
+<h2>{{i18n|en=Properties|zh=属性}}</h2>
+{{i18n
+|en=
+Properties are features provided by the engine. They are accessed by index.
+
+For example, the following code
+|zh=
+游戏对象的属性是一些引擎内部功能的集合，以索引的形式进行使用。
+
+例如，以下代码
+}}
+<syntaxhighlight lang="lua">
+obj.x = obj.timer / 10
+</syntaxhighlight>
+{{i18n
+|en=
+will read value of '''timer''' property, divide it by 10 and assign the result to '''x''' property.
+|zh=
+将取出'''timer'''属性的值，然后除以10，将结果写入'''x'''属性。
+}}
+<h3>{{i18n|en=Common Properties|zh=通用属性}}</h3>
+{{i18n
+|en=Common properties apply to [[LuaSTGPlus]], [[LuaSTGExPlus]] and [[LuaSTG-x]].
+|zh=通用属性适用于[[LuaSTGPlus]]，[[LuaSTGExPlus]]和[[LuaSTG-x]]。
+}}
+{| class="wikitable"
+! style="text-align: left;" | {{i18n|en=Name|zh=名称}}
+! {{i18n|en=Type|zh=类型}}
+! {{i18n|en=Description|zh=描述}}
+|-
+|x||number||{{i18n|en=X coordinates|zh=X坐标}}
+|-
+|y||number||{{i18n|en=Y coordinates|zh=Y坐标}}
+|-
+|dx||number||{{i18n|en=difference of X coordinates since last frame (read-only)|zh=X坐标相对于上一帧的增量（只读）}}
+|-
+|dy||number||{{i18n|en=difference of Y coordinates since last frame (read-only)|zh=Y坐标相对于上一帧的增量（只读）}}
+|-
+|rot||number||{{i18n|en=orientation (in degrees)|zh=朝向（角度）}}
+|-
+|omiga||number||{{i18n|en=angular velocity of orientation|zh=朝向的角速度}}
+|-
+|timer||number||{{i18n|en=update counter|zh=更新计数器}}
+|-
+|vx||number||{{i18n|en=X-component of velocity|zh=速度的X分量}}
+|-
+|vy||number||{{i18n|en=Y-component of velocity|zh=速度的Y分量}}
+|-
+|ax||number||{{i18n|en=X-component of acceleration|zh=加速度的X分量}}
+|-
+|ay||number||{{i18n|en=Y-component of acceleration|zh=加速度的Y分量}}
+|-
+|layer||number||{{i18n|en=render layer|zh=渲染层级}}
+|-
+|group||number||{{i18n|en=collision group|zh=碰撞组}}
+|-
+|hide||boolean||{{i18n|en=if object will not be rendered|zh=是否隐藏（跳过渲染回调）}}
+|-
+|bound||boolean||{{i18n|en=if object will be marked at boundary check|zh=是否越界销毁}}
+|-
+|navi||boolean||{{i18n|en=if orientation will be updated according to velocity|zh=是否根据速度自动更新朝向}}
+|-
+|colli||boolean||{{i18n|en=if object will be involved in collision check|zh=是否参与碰撞检测}}
+|-
+|status||string||{{i18n|en=status of object, can be "del", "kill" or "normal"|zh=对象状态，取值为 "del", "kill" 或 "normal"}}
+|-
+|hscale||number||{{i18n|en=horizontal scale for render|zh=横向的渲染缩放}}
+|-
+|vscale||number||{{i18n|en=verticle scale for render|zh=纵向的渲染缩放}}
+|-
+|class||table||{{i18n|en=class of the object|zh=对象的类}}
+|-
+|a||number||{{i18n|en=horizontal parameter of collision box|zh=碰撞盒的水平参数}}
+|-
+|b||number||{{i18n|en=verticle parameter of collision box|zh=碰撞盒的垂直参数}}
+|-
+|rect||boolean||{{i18n|en=if collision box is rectangle|zh=是否为矩形碰撞盒}}
+|-
+|img||string||{{i18n|en=name of renderable resource on the object|zh=绑定的可渲染资源的名称}}
+|-
+|ani||number||{{i18n|en=animation timer (read-only)|zh=动画计数器（只读）}}
+|}
+
+<h4>{{i18n|en=Instructions|zh=说明}}</h4>
+* {{i18n
+|en="omiga" is a typo from old version, it should be "omega".
+|zh="omiga"是旧版本遗留的拼写错误，应拼写为"omega"。
+}}
+===== layer =====
+{{i18n
+|en=
+Object with smaller '''layer''' property will be rendered first.
+|zh=
+具有较小 '''layer''' 属性的游戏对象将会先渲染。
+}}
+===== group =====
+{{i18n
+|en=
+'''group''' property is an integer from 0 to 15.
+|zh=
+'''group''' 属性的取值为0至15的整数。
+}}
+===== rect =====
+{{i18n
+|en=
+'''rect''' property behaves differently in LuaSTG-x, please refer to [[Collision Box]].
+|zh=
+'''rect''' 属性在LuaSTG-x中具有不同的行为，请参考[[Collision Box|碰撞盒]]。
+}}
+===== img =====
+{{i18n
+|en=
+'''img''' property accepts name of renderable game resource. In LuaSTGPlus/LuaSTGExPlus, it includes image resource, animation resource and particle resource. In LuaSTG-x, it also includes font resource and texture resource.
+
+* Once a resource is assigned to '''img''' property, the game object will hold a reference of the resource.
+* In LuaSTG-x, '''img''' property can be set to '''nil''' to release the reference.
+* In LuaSTG-x, '''img''' property can also accept resource object.
+|zh=
+'''img''' 属性接受可渲染游戏资源的名称。在LuaSTGPlus/LuaSTGExPlus中，这包括图像资源，动画资源和粒子资源。在LuaSTG-x中，还包括字体资源和纹理资源。
+
+* 当一个资源被赋予 '''img''' 属性时，游戏对象将持有该资源的引用。
+* 在LuaSTG-x中，'''img''' 属性可以被设置为 '''nil''' 来释放引用。
+* 在LuaSTG-x中，'''img''' 属性还可以接受资源对象。
+}}
+<h3>{{i18n|en=Properties Extended by LuaSTG-x|zh=LuaSTG-x扩展的属性}}</h3>
+{{i18n
+|en=
+Following properties will be enabled when game object class is defined by '''xclass()''':
+|zh=
+使用 '''xclass()''' 函数定义游戏对象类时，以下属性会被启用：
+}}
+{| class="wikitable"
+! style="text-align: left;" | {{i18n|en=Name|zh=名称}}
+! {{i18n|en=Type|zh=类型}}
+! {{i18n|en=Description|zh=描述}}
+|-
+|res||object||{{i18n|en=resource object|zh=资源对象}}
+|-
+|rc||object||{{i18n|en=resource component object|zh=资源相关对象}}
+|-
+|rm||object||{{i18n|en=render mode|zh=渲染模式}}
+|-
+|light||object/number||{{i18n|en=light source object or light flag|zh=光源对象或光照标志}}
+|-
+|color||color object||{{i18n|en=blend color|zh=混合颜色}}
+|-
+|A||number||{{i18n|en=alpha component of blend color|zh=混合颜色的透明度分量}}
+|-
+|R||number||{{i18n|en=red component of blend color|zh=混合颜色的红色分量}}
+|-
+|G||number||{{i18n|en=green component of blend color|zh=混合颜色的绿色分量}}
+|-
+|B||number||{{i18n|en=blue component of blend color|zh=混合颜色的蓝色分量}}
+|}
+{{i18n
+|en=
+Following properties will be enabled when game object class is defined by '''xclass()''' and inherits '''object3d''':
+|zh=
+使用 '''xclass()''' 函数定义游戏对象类且继承 '''object3d''' 时，以下属性会被启用：
+}}
+{| class="wikitable"
+! style="text-align: left;" | {{i18n|en=Name|zh=名称}}
+! {{i18n|en=Type|zh=类型}}
+! {{i18n|en=Description|zh=描述}}
+|-
+|z||number||{{i18n|en=Z coordinates|zh=Z坐标}}
+|-
+|dz||number||{{i18n|en=difference of Z coordinates since last frame (read-only)|zh=Z坐标相对于上一帧的增量（只读）}}
+|-
+|vz||number||{{i18n|en=Z-component of velocity|zh=速度的Z分量}}
+|-
+|az||number||{{i18n|en=X-component of acceleration|zh=加速度的Z分量}}
+|-
+|zscale||number||{{i18n|en=Z-axis scale for render|zh=Z轴的渲染缩放}}
+|-
+|quat||table||{{i18n|en=quaternion of 3D rotation|zh=3D旋转的四元数}}
+|}
+
+<h4>{{i18n|en=Instructions|zh=说明}}</h4>
+
+===== res =====
+{{i18n
+|en=
+Returns resource object no game object when accessed. Same as '''img''' when assigned.
+|zh=
+读取时返回绑定的资源对象。赋值时与 '''img''' 属性相同。
+}}
+===== rc =====
+{{i18n
+|en=
+Readonly. Returns an object when game object holds a font/particle/texture resource. The object is hold by game object.
+
+* When holding a font resource, returns '''cocos::Label''' object.
+* When holding a particle resource, returns '''lstg::ParticlePool''' object.
+* When holding a texture resource, returns a pointer point to an array of '''cocos::V3F_C4B_T2F'''. Note that there is no protection on the pointer.
+|zh=
+只读。绑定字体/粒子/纹理资源时返回一个对象，该对象由游戏对象持有。
+
+* 绑定字体资源时，返回'''cocos::Label'''对象。
+* 绑定粒子资源时，返回'''lstg::ParticlePool'''对象。
+* 绑定纹理资源时，返回顶点数据指针，指向一个'''cocos::V3F_C4B_T2F'''数组。注意：该指针没有越界保护。
+}}
+===== rm =====
+{{i18n
+|en=
+Render mode used for default rendering. Will override render mode of holding resource.
+
+* Accepts '''lstg::RenderMode''' object or its name.
+* Returns '''lstg::RenderMode''' object.
+|zh=
+默认渲染时使用的渲染模式。会覆盖所持有资源的渲染模式。
+
+* 接受'''lstg::RenderMode'''对象或其名称。
+* 返回'''lstg::RenderMode'''对象。
+}}
+===== light =====
+{{i18n
+|en=
+Light source object or light flag.
+
+* When assigned a number, light flag will be set to the value. Default light flag is 0.
+* When assigned a '''cocos::BaseLight''' object (light source object), game object will hold it.
+* Mark flag of the light source object as A, light flag of another game object as B. When result of '''A AND B''' is not 0, light parameters will be calculated and assigned to uniforms of the shader on the game object.
+* Default flag of light source object is 1. Please refer to [https://docs.cocos.com/cocos2d-x/v4/manual/en/3d/lighting.html here] to check its usage.
+* Returns '''nil''' if not assigned.
+* Returns the object if assigned light source object.
+* Returns the number if assigned light flag.
+* Returns the light source object if both assigned.
+* A light shader is provided by the engine. It can be used by assign "lstg.light" to '''rm''' property.
+|zh=
+光源对象或光照标志。
+
+* 设置数字时，会将游戏对象的光照标志设置为该值，默认的光照标志为0。
+* 设置'''cocos::BaseLight'''对象（光源对象）时，游戏对象会持有该对象并成为光源。
+* 当某一游戏对象的光照标志与光源对象的标志做与运算不为0时，则计算光照参数并设置该游戏对象使用的着色器中的uniform变量。
+* 光源的默认光照标志为1，用法请参考[https://docs.cocos.com/cocos2d-x/v4/manual/zh/3d/lighting.html 此处]。
+* 若未设置光源或光照标志，返回 '''nil'''。
+* 若已设置光源对象，返回设置的光源对象。
+* 若已设置光照标志，返回光照标志的值。
+* 若均设置则返回光源对象。
+* 引擎提供了基于法线贴图的光照着色器，将'''rm'''属性设置为"lstg.light"即可使用。
+}}
+===== color =====
+{{i18n
+|en=
+Blend color for default rendering. Will override blend color of holding resource.
+
+* Accepts color object.
+* Returns color object.
+|zh=
+默认渲染的混合颜色。会覆盖所持有资源的混合颜色。
+
+* 接受颜色对象。
+* 返回颜色对象。
+}}
+<h2>{{i18n|en=Callbacks|zh=回调函数}}</h2>
+{{i18n
+|en=
+Callbacks are defined by game object class. They will be invoked by engine when corresponding event happens.
+|zh=
+回调函数由游戏对象类定义，它们会在相应事件发生时被引擎调用。
+}}
+{| class="wikitable"
+! style="text-align: left;" | {{i18n|en=Name|zh=名称}}
+! ID
+! {{i18n|en=Parameters|zh=参数}}
+|-
+|init||1||object, ...
+|-
+|del||2||object, ...
+|-
+|frame||3||object
+|-
+|render||4||object
+|-
+|colli||5||object, object
+|-
+|kill||6||object, ...
+|}
+* {{i18n
+|en=
+The engine will use IDs of these callbacks instead of their names.
+|zh=
+引擎会使用这些回调函数的ID而非它们的名称。
+}}
+=== init ===
+{{i18n
+|en=
+'''init''' callback will be invoked when a game object is created. This happens in '''New()''' function.
+
+* Extra parameters passed to '''New()''' function will be passed to '''init''' callback. For example, '''New(cls, 1, 2, 3)''' will pass '''1, 2, 3''' to '''init''' callback defined by '''cls'''.
+|zh=
+'''init''' 回调在游戏对象被创建时调用。这发生在 '''New()''' 函数内部。
+
+* 传递给 '''New()''' 函数的额外参数将被传递给 '''init''' 回调。例如，'''New(cls, 1, 2, 3)''' 将会传递 '''1, 2, 3''' 给 '''cls''' 定义的 '''init''' 回调。
+}}
+=== del ===
+{{i18n
+|en=
+'''del''' callback will be triggered by '''Del()''' and '''BoundCheck()'''.
+
+* '''status''' property will be set to "del" before it is invoked.
+* This callback will not be triggered by '''Del()''' when '''status''' property is not "normal".
+* Extra parameters passed to '''Del()''' function will be passed to '''del''' callback.
+|zh=
+'''del''' 回调会被 '''Del()''' 和 '''BoundCheck()''' 函数触发。
+
+* 在被调用前，'''status''' 属性会被设置为 "del"。
+* 当 '''status''' 属性不为 "normal" 时，'''Del()''' 函数不会触发该回调。
+* 传递给 '''Del()''' 函数的额外参数将被传递给 '''del''' 回调。
+}}
+=== kill ===
+{{i18n
+|en=
+'''kill''' callback will be triggered by '''Kill()'''.
+
+* '''status''' property will be set to "kill" before it is invoked.
+* This callback will not be triggered by '''Kill()''' when '''status''' property is not "normal".
+* Extra parameters passed to '''Kill()''' function will be passed to '''kill''' callback.
+|zh=
+'''kill''' 回调会被 '''Kill()''' 函数触发。
+
+* 在被调用前，'''status''' 属性会被设置为 "kill"。
+* 当 '''status''' 属性不为 "normal" 时，'''Kill()''' 函数不会触发该回调。
+* 传递给 '''Kill()''' 函数的额外参数将被传递给 '''kill''' 回调。
+}}
+=== frame ===
+{{i18n
+|en=
+'''frame''' callback will be triggered by '''ObjFrame()'''.
+
+* '''frame''' callback of all game objects will be invoked in order of created time in '''ObjFrame()'''.
+|zh=
+'''frame''' 回调会被 '''ObjFrame()''' 函数触发。
+
+* 在 '''ObjFrame()''' 函数中，所有游戏对象将按照被创建的顺序依次调用 '''frame''' 回调。
+}}
+=== render ===
+{{i18n
+|en=
+'''render''' callback will be triggered by '''ObjRender()'''.
+
+* '''render''' callback of all game objects will be invoked in ascending order of '''layer''' property in '''ObjFrame()'''.
+* This callback will not be triggered when '''hide''' property is '''true'''.
+|zh=
+'''render''' 回调会被 '''ObjRender()''' 函数触发。
+
+* 在 '''ObjRender()''' 函数中，所有游戏对象将按照 '''layer''' 属性从小到大的顺序依次调用 '''render''' 回调。
+* '''hide''' 属性为 '''true''' 时将不会触发该回调。
+}}
+=== colli ===
+{{i18n
+|en=
+'''colli''' callback will be triggered by '''CollisionCheck()'''.
+
+* This callback will not be triggered when '''colli''' property is '''false'''.
+|zh=
+'''colli''' 回调会被 '''CollisionCheck()''' 函数触发。
+
+* '''colli''' 属性为 '''false''' 时将不会触发该回调。
+}}
+<h2>{{i18n|en=Members|zh=成员}}</h2>
+{{i18n
+|en=
+As a Lua table game, a object can have its own members (aka fields) accessed through index. Index of a member can not be same as name of property.
+
+* Index '''1''' and '''2''' are used by engine internally. Do not use them.
+* In LuaSTG-x, if the game object class is defined by '''xclass()''' and instantiated as '''obj = cls()''', then its non-callback methods will become members of the game object.
+|zh=
+作为Lua表，游戏对象可以拥有自己的成员（也称为域），通过索引来访问。成员的索引不能与属性名称相同。
+
+* 索引 '''1''' 和 '''2''' 被用于引擎内部，请勿使用。
+* 在LuaSTG-x中，如果游戏对象类由 '''xclass()''' 函数定义，且由 '''obj = cls()''' 的形式实例化，则游戏对象类的非回调方法会成为游戏对象的成员。
+}}
+<h2>{{i18n|en=Game Object Class|zh=游戏对象类}}</h2>
+{{i18n
+|en=
+Game object class is a template for objects, which defines callbacks for them.
+
+* The engine only create objects and invoke callbacks. Other OOP features such as inheritance and override are provided by core scripts.
+
+A game object class is a Lua table. Its index "is_class" is '''true''' and index '''1''' to '''6''' are callbacks.
+
+For example, the following code
+|zh=
+游戏对象类是游戏对象的模板，它定义了对象所共有的回调函数。
+
+* 引擎只负责创建游戏对象和调用回调函数，继承、重写等其他面向对象编程特性是由核心脚本提供的。
+
+游戏对象类的本质是一个Lua表，其 "is_class" 索引为 '''true'''，索引 '''1''' 至 '''6''' 为对应的回调函数。
+
+例如，以下代码
+}}
+<syntaxhighlight lang="lua">
+local cls = { is_class = true }
+for i = 1, 6 do
+    cls[i] = function() end
+end
+</syntaxhighlight>
+{{i18n
+|en=
+defines a game object class '''cls''' whose callbacks are empty functions.
+
+Core scripts provide '''Class()''' function. It allows user to define a game object class in script conveniently. Callbacks are defined through their names instead. Refer to [[Core:Class|here]] for more information.
+
+After game object classes are defined, the engine will process them with an operation called '''register'''. The engine will throw an error when a game object class that defined after register operation is used.
+|zh=
+定义了一个游戏对象类 '''cls'''，其回调函数均为空函数。
+
+核心脚本提供了 '''Class()''' 函数，使用户可以方便地在脚本中定义游戏对象类，且回调函数改为以名字进行定义。更多信息请参考[[Core:Class|此处]]。
+
+在游戏对象类定义完成后，引擎会对它们进行一个称为'''注册'''的操作。如果一个游戏对象类在注册操作后被定义，则引擎会在使用它时抛出错误。
+}}

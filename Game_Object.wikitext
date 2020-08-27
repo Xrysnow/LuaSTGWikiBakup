@@ -115,9 +115,9 @@ Object with smaller '''layer''' property will be rendered first.
 ===== rect =====
 {{i18n
 |en=
-'''rect''' property behaves differently in LuaSTG-x, please refer to [[Collision Box]].
+'''rect''' property behaves differently in LuaSTG-x, please refer to [[Hitbox]].
 |zh=
-'''rect''' 属性在LuaSTG-x中具有不同的行为，请参考[[Collision Box|碰撞盒]]。
+'''rect''' 属性在LuaSTG-x中具有不同的行为，请参考[[Hitbox|碰撞盒]]。
 }}
 ===== img =====
 {{i18n

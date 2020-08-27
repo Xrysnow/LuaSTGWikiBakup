@@ -27,6 +27,17 @@ body.page-Main_Page div#content { margin-right: 5% !important; }
 /* hide toc, will be shown through Common.js */
 .toc { display: none; }
 
+@media screen and (max-width: 720px) {
+  #mw-navigation #mw-panel {
+    display: block !important;
+    position: fixed !important;
+    width: 480px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    font-size: inherit !important;
+  }
+}
+
 /* --------------------------------------------------------------------- */
 
 /* Wikipedia CSS */
@@ -2188,12 +2199,12 @@ to{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);transform:rota
 body.hide-sidebar #mw-panel{display:none !important}
 body.hide-sidebar #content,body.hide-sidebar #left-navigation,body.hide-sidebar #footer{margin-left:0}
 body.hide-sidebar #mw-hidesidebarwrapper{left:0}
-body.hide-sidebar button#mw-hidesidebar{color:#ff9df0;color:var(--secondary-color-high);background-image:url(/skins/Unicorn/images/fold-out/fold-out-default.svg?6ab00);background-image:var(--fold-out-default-icon)}
-body.hide-sidebar button#mw-hidesidebar:hover{background-image:url(/skins/Unicorn/images/fold-out/fold-out-secondary.svg?afd78);background-image:var(--fold-out-icon)}
+body.hide-sidebar button#mw-hidesidebar{color:#ff9df0;color:var(--secondary-color-high);background-image:url(http://images.shoutwiki.com/en.luastg/4/4c/Fold-out-default.svg);/*background-image:var(--fold-out-default-icon)*/}
+body.hide-sidebar button#mw-hidesidebar:hover{background-image:url(http://images.shoutwiki.com/en.luastg/2/26/Fold-out-secondary.svg);background-image:var(--fold-out-icon)}
 #mw-hidesidebarwrapper{position:fixed;top:50%;left:11em;z-index:1001}
 #mw-hidesidebar,#mw-togglesearch{background-color:#ffffff;background-color:var(--foreground-color-high);background-position:center;background-repeat:no-repeat;cursor:pointer}
-#mw-hidesidebar{border:1px solid #e8e8e8;border:1px solid var(--border-color-low);border-left:none;height:100px;width:18px;padding:0px;margin-top:-50px;color:#f2b040;color:var(--primary-color-high);background-image:url(/skins/Unicorn/images/fold-in/fold-in-default.svg?29cb1);background-image:var(--fold-in-default-icon)}
-#mw-hidesidebar:hover{background-image:url(/skins/Unicorn/images/fold-in/fold-in-primary.svg?e2096);background-image:var(--fold-in-icon)}
+#mw-hidesidebar{border:1px solid #e8e8e8;border:1px solid var(--border-color-low);border-left:none;height:100px;width:18px;padding:0px;margin-top:-50px;color:#f2b040;color:var(--primary-color-high);background-image:url(http://images.shoutwiki.com/en.luastg/8/86/Fold-in-default.svg);/*background-image:var(--fold-in-default-icon)*/}
+#mw-hidesidebar:hover{background-image:url(http://images.shoutwiki.com/en.luastg/9/92/Fold-in-primary.svg);background-image:var(--fold-in-icon)}
 #mw-togglesearch{display:none;background-image:url(/skins/Unicorn/images/search-ltr.png?39f97);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2213%22%3E%3Cg stroke-width=%222%22 stroke=%22%236c6c6c%22 fill=%22none%22%3E%3Cpath d=%22M11.29 11.71l-4-4%22/%3E%3Ccircle cx=%225%22 cy=%225%22 r=%224%22/%3E%3C/g%3E%3C/svg%3E");z-index:1101}
 #p-panel-gads{height:240px;text-align:center;margin:20px 0px 40px 0px}
 #footer{margin-left:11em;margin-top:0;padding:0.75em;direction:ltr}
@@ -2221,11 +2232,11 @@ div.tright,div.floatright,table.floatright,div.tleft,div.floatleft,table.floatle
 #mw-togglesearch,#mw-hidesidebar{background-size:24px;border:none;height:48px;width:56px}
 #mw-togglesearch{display:block;position:fixed;top:0px;right:0px;background-color:#e8e8e8;background-color:var(--background-color-low)}
 #mw-hidesidebarwrapper{position:fixed;top:0;left:0}
-#mw-hidesidebar{margin-top:0;background-image:url(/skins/Unicorn/images/mobile-fold-in.png?3fa96) !important;background-color:#447edd;background-color:var(--link-color-high)}
+#mw-hidesidebar{margin-top:0;background-image:url(http://images.shoutwiki.com/en.luastg/4/4a/Mobile-fold-in.png) !important;background-color:#447edd;background-color:var(--link-color-high)}
 body.hide-sidebar{overflow:auto}
 body.hide-sidebar #mw-panel{width:0}
 body.hide-sidebar #content,body.hide-sidebar #left-navigation,body.hide-sidebar #footer{margin-left:0}
-body.hide-sidebar #mw-hidesidebar{background-image:url(/skins/Unicorn/images/mobile-fold-out.png?99f64) !important;background-color:#e8e8e8;background-color:var(--background-color-low)}
+body.hide-sidebar #mw-hidesidebar{background-image:url(http://images.shoutwiki.com/en.luastg/5/57/Mobile-fold-out.png) !important;background-color:#e8e8e8;background-color:var(--background-color-low)}
 .mw-body{padding:16px 30px;border-left:0}
 #bodyContent{width:100%}
 .broadtable,.smwtable,.sortable{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
@@ -2245,7 +2256,7 @@ body.hide-sidebar #mw-hidesidebar{background-image:url(/skins/Unicorn/images/mob
 #mw-panel div.portal h3.expand{background-color:#f4f4f4;background-color:var(--background-color-high);text-align:center}
 #mw-panel div.portal h3.expand::after{content:"\27E8";left:0px;right:initial;border-left:none;border-right:1px solid #e8e8e8;border-right:1px solid var(--border-color-low)}
 #mw-panel div.portal h3.expand:hover::after{color:#ff9df0;color:var(--secondary-color-high)}
-#mw-panel div.portal h3 + .body{display:none;width:480px;background-color:#ffffff;background-color:var(--foreground-color-high)}
+#mw-panel div.portal h3 + .body{/* display:none; */width:480px;background-color:#ffffff;background-color:var(--foreground-color-high)}
 #mw-panel .panelpage{display:inline-block;vertical-align:top}
 #mw-panel .panelpage h3.expand + .body{display:block}
 #mw-panel div.portal:first-child .body{display:block;margin-left:0;position:static}
@@ -2277,7 +2288,7 @@ body.scrolled-down.hide-searchpage #mw-togglesearch,body.scrolled-down.hide-sear
 body.scrolled-down.hide-searchpage #mw-togglesearch:hover,body.scrolled-down.hide-searchpage #mw-hidesidebar:hover{-webkit-transform:scale(1.1);transform:scale(1.1)}
 body.scrolled-down.hide-searchpage #mw-panel{top:76px}
 #mw-searchpage{display:none;position:fixed;top:48px;left:0;width:100%;height:100%;background-color:#f4f4f4;background-color:var(--background-color-high);z-index:1000}
-body.show-searchpage #mw-togglesearch{left:0;background-image:url(/skins/Unicorn/images/mobile-fold-in.png?3fa96) !important;background-color:#447edd;background-color:var(--link-color-high)}
+body.show-searchpage #mw-togglesearch{left:0;background-image:url(http://images.shoutwiki.com/en.luastg/4/4a/Mobile-fold-in.png) !important;background-color:#447edd;background-color:var(--link-color-high)}
 body.show-searchpage #p-search{position:fixed;top:0;left:0;z-index:1100;margin:0;width:100%;float:none}
 body.show-searchpage #p-search #simpleSearch{margin-left:56px;max-width:inherit;width:inherit;border-radius:0}
 body.show-searchpage #p-search #simpleSearch #searchInput{font-size:18px;padding:4px 10px 0px 20px;border-radius:0}

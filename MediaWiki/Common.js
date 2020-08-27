@@ -71,4 +71,38 @@ function ModifyToc() {
 
 ModifyToc();
 
+/* --------------------------------------------------------------------------------- */
+
+function HideSideBarAction() {
+    document.body.classList.toggle("hide-sidebar");
+}
+
+function SetSideBar() {
+    // add toggle button
+    var nav = document.getElementById("mw-navigation");
+    if (nav == null) {
+        return;
+    }
+    var e = document.createElement("div");
+    e.id = "mw-hidesidebarwrapper";
+    e.style = "margin-left: 0px;";
+
+    var btn = document.createElement("button");
+    btn.id = "mw-hidesidebar";
+    btn.onclick = HideSideBarAction;
+
+    e.appendChild(btn);
+    nav.appendChild(e);
+
+    // set class
+    var arr = document.getElementsByClassName("portal");
+    for (var i = 0; i < arr.length; i++) {
+        var e = arr[i];
+        e.classList.toggle("panelpage", true);
+        e.classList.toggle("body", true);
+    }
+}
+
+SetSideBar();
+
 console.log("Common.js finished");

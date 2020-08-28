@@ -38,6 +38,16 @@ body.page-Main_Page div#content { margin-right: 5% !important; }
   }
 }
 
+.button a {
+  width: 100%;
+  height: 100%;
+  background-image: none !important;
+  padding-right: 0 !important;
+}
+.button a div:hover {
+  background-color: transparent;
+}
+
 /* --------------------------------------------------------------------- */
 
 /* Wikipedia CSS */

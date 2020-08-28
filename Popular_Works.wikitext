@@ -1,0 +1,68 @@
+== Introduction ==
+{{i18n
+|en=This page is dedicated to listing popular works made with LuaSTG.
+|zh=本页面列出了使用LuaSTG制作的活跃作品。
+}}
+== Game List ==
+<table class="doujinworklist">
+{{SimpleGameInfo
+| Name=东方幻梦笺~Touhou Phantasm Dream
+| Cover=jpg
+| Date=2015-08-01
+| Producer=龙皇社
+}}
+{{SimpleGameInfo
+| Name=东方宵海格 ～ the Unvisible Wing
+| Cover=jpg
+| Date=2018-08-02
+| Producer=OSY搞事组
+}}
+{{SimpleGameInfo
+| Name=東方稀濳群 ～ Unstable and Unimaginable Power.
+| Cover=png
+| Date=2018-09-30
+| Producer=Team Magnitude Manipulators
+}}
+{{SimpleGameInfo
+| Name=东方宵海格 ～ the Unvisible Wing·光影篇
+| Cover=jpg
+| Date=2018-11-05
+| Producer=OSY搞事组
+}}
+{{SimpleGameInfo
+| Name=东方宵海格 ～ the Unvisible Wing·搞事篇
+| Cover=png
+| Date=2019-04-19
+| Producer=OSY搞事组
+}}
+{{SimpleGameInfo
+| Name=东方龙隐谈 ～ Chaos of Black Loong
+| Cover=jpg
+| Date=	2019-08-16
+| Producer=龙皇社
+}}
+{{SimpleGameInfo
+| Name=东方祈华梦 ～ Elegant Impermanence of Sakura.
+| Cover=png
+| Date=2020-04-16
+| Producer=东方祈华梦制作组
+}}
+{{SimpleGameInfo
+| Name=东方时裂空 ～ Numerology of Artifacts.
+| Cover=jpg
+| Date=2019-05-12 (Demo)
+| Producer=顺毛犬制作组
+}}
+{{SimpleGameInfo
+| Name=东方梦无垠~The Unreachable Oneireborder
+| Cover=jpg
+| Date=2019-08-17 (Demo)
+| Producer=实界
+}}
+{{SimpleGameInfo
+| Name=東方儀式城 ～ Magnificent and Ancient Record.
+| Cover=png
+| Date=2019-07-16 (Announce)
+| Producer=Team Magnitude Manipulators
+}}
+</table>

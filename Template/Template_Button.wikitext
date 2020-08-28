@@ -1,11 +1,14 @@
 <includeonly><!--
---><div class="button {{{class|}}}" style="{{#if:{{{width|}}}|width:{{{width}}};}} {{#if:{{{height|}}}|height:{{{height}}};}} {{#if:{{{style|}}}|{{{style}}};}} background-color:{{#if:{{{bg2|}}}|{{{bg2}}}|#f2b040}}"><!--
-    -->[{{{1}}} <div style="width:100%;height:100%;text-align:center;background-color:{{#if:{{{bg1|}}}|{{{bg1}}}|#ffffff}};"><!--
-        --><div style="position: relative;top: 50%;transform: translateY(-50%);">{{{2|1}}}</div><!--
+--><div class="button {{{class|}}}" style="background-color:{{#if:{{{bg2|}}}|{{{bg2}}}|#f2b040}};display: inline-block;"><!--
+    -->[{{{1}}} <div style="{{#if:{{{width|}}}|width:{{{width}}};}}{{#if:{{{height|}}}|height:{{{height}}};}}{{#if:{{{nocenter|}}}|;|text-align:center;}}background-color:{{#if:{{{bg1|}}}|{{{bg1}}}|#ffffff}};padding:{{#if:{{{padding|}}}|{{{padding}}}|12px}};"><!--
+        --><div style="{{#if:{{{style|}}}|{{{style}}};}}position: relative;top: 50%;{{#if:{{{height|}}}|transform: translateY(-50%);}}">{{{2|1}}}</div><!--
     --></div>]<!--
 --></div><!--
 --></includeonly>
 <noinclude>
-{{button|http://en.luastg.shoutwiki.com|Wiki|width=300px|height=200px}}
-{{button|http://en.luastg.shoutwiki.com|Wiki|width=300px|height=200px|bg1=#f00|bg2=#0f0}}
+{{button|http://en.luastg.shoutwiki.com|Wiki}}
+{{button|http://en.luastg.shoutwiki.com|Wiki|padding=20px|style=color:#f00}}
+{{button|http://en.luastg.shoutwiki.com|Wiki|padding=16px 24px 16px 8px}}
+{{button|http://en.luastg.shoutwiki.com|'''Wiki'''|width=160px|height=80px|bg1=#f77|bg2=#7f7}}
+{{button|http://en.luastg.shoutwiki.com|'''Wiki'''|width=160px|height=80px|nocenter=1}}
 </noinclude>

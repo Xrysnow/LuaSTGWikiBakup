@@ -60,6 +60,12 @@
 | Producer=实界
 }}
 {{SimpleGameInfo
+| Name=东方栖霞园 ~ Blue devil in the Belvedere.
+| Cover=jpg
+| Date=2020-08-28 (Demo)
+| Producer=东方祈华梦制作组
+}}
+{{SimpleGameInfo
 | Name=東方儀式城 ～ Magnificent and Ancient Record.
 | Cover=png
 | Date=2019-07-16 (Announce)

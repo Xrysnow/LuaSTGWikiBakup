@@ -1,0 +1,18 @@
+
+* navigation
+** mainpage|mainpage-description
+** Tutorials|sidebar-Tutorials
+** Functions|sidebar-Editor Functions
+** API Manual|sidebar-API Manual
+** Engine Feature List|sidebar-Engine Features
+** Popular Works|sidebar-Works List
+** LuaSTG Downloads|sidebar-Downloads
+
+* Wiki
+** LuaSTG Wiki:Sandbox|sidebar-Sandbox
+** recentchanges-url|recentchanges
+** helppage|help-mediawiki
+
+* SEARCH
+* TOOLBOX
+* LANGUAGES

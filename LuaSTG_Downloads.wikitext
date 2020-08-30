@@ -1,0 +1,67 @@
+= Engines =
+
+== LuaSTG ==
+
+This is the [[LuaSTG (vanilla)|original LuaSTG]], created by 隔壁的桌子 in 2011. It's very deprecated, so only get this in case you need it to play a game made on it. Otherwise, ignore it, as it is here only for archival purposes.
+
+{{button|https://code.google.com/archive/p/lstg/downloads|Download #1|bg1=#38c34b|bg2=#38e04b|style=color:#fff;font-size:large;}}
+The page includes version '''0.01, 0.20 and 0.30'''.
+
+{{button|https://linkmix.co/876249|Download #2|bg1=#38c34b|bg2=#38e04b|style=color:#fff;font-size:large;}}
+The page includes version from 0.31 to 0.35c.
+
+== LuaSTG Boost ==
+
+This is [[LuaSTG Boost]], a derived branch of [[LuaSTG (vanilla)]] from 同在二要, that in 2011 aimed to improve and add features to the engine. It has been deprecated.
+
+{{button|https://linkmix.co/876335|Download|bg1=#38c34b|bg2=#38e04b|style=color:#fff;font-size:large;}}
+The page includes version '''0.35e''', '''1.000''', '''1.010''' and '''1.020'''.
+
+== LuaSTGPlus ==
+
+This is [[LuaSTGPlus|LuaSTG Plus]], an engine by ⑨chu in 2015 based on the original LuaSTG with remodeled architecture and other implementations. Most other LuaSTG engines were based off of this version. It is no longer in active development.
+
+{{button|https://mega.nz/folder/WVAQwYzA#X9g-KiulLMUZfdn8DDV72g|Download|bg1=#38c34b|bg2=#38e04b|style=color:#fff;font-size:large;}}
+Despite the name difference, they are the same, "Er" just meaning it is the distributed version of LuaSTGPlus. The page includes version '''1.02'''.
+
+== LuaSTGExPlus ==
+
+This is [[LuaSTGExPlus|LuaSTG Ex Plus]], another LuaSTG version based off of LuaSTG Plus, initially conceived by ExboCooope in 2018 but later taken hold of by Xiliusha and OLC.
+
+{{button|https://mega.nz/folder/WVAQwYzA#X9g-KiulLMUZfdn8DDV72g|Download|bg1=#38c34b|bg2=#38e04b|style=color:#fff;font-size:large;}}
+The page includes version '''0.80d''', '''0.81c''', '''0.82a''' and '''0.82b'''.
+
+== LuaSTG-x ==
+
+This is [[LuaSTG-x]], the latest LuaSTG version available publicly, however it's uncomplete, but aims to be the best LuaSTG version, being multiplatform and having major advancements and performance improvements. However, it is currently a bit unstable and may not run correctly on some systems.
+
+{{button|https://mega.nz/folder/WVAQwYzA#X9g-KiulLMUZfdn8DDV72g|Download|bg1=#38c34b|bg2=#38e04b|style=color:#fff;font-size:large;}}
+The page contains version '''TP_v7.0''', '''TP_v7.1''' and '''TP_v8.0'''.
+
+= Editors =
+
+== Legacy Editor ==
+
+This is the [[LuaSTG Editor (legacy)|legacy LuaSTG editor]] (aka wxLua Editor), initially created by 隔壁的桌子 in 2011, but updated to conform to new LuaSTG versions by their respective maintainers, based on the wxLua platform. It's deprecated, as it would become very cumbersome and slow in bigger projects, and also especially difficult to maintain. Requires Lua For Windows to be open.
+
+'''The legacy editor comes bundled with LuaSTG releases.'''
+
+== LuaSTG Sharp Editor ==
+
+This is the [[LuaSTG Editor Sharp]] (aka Sharp Editor), created by czh098tom/NightBird in 2019, to be an alternative to the wxLua editor, adding an enourmous amount of features and extreme performance improvements, as it is based on C# instead of the wxLua platform. It's target is LuaSTGExPlus and LuaSTG-x.
+
+{{button|https://github.com/czh098tom/LuaSTG-Editor-Sharp/releases|Download|bg1=#38c34b|bg2=#38e04b|style=color:#fff;font-size:large;}}
+The page contains all released versions.
+
+== LuaSTG-x Editor ==
+
+This is the [[LuaSTG-x Editor]], an alternative version of the wxLua editor that comes bundled with LuaSTG-x, but with new features and performance improvements, along with exclusive LuaSTG-x features.
+
+'''The LuaSTG-x Editor comes bundled with LuaSTG-x.'''
+
+= Lua For Windows =
+[[File:LuaFWFront.png|700px]]
+
+You need to install Lua For Windows to run the legacy editor.
+
+{{button|https://github.com/rjpcomputing/luaforwindows/releases|Download|bg1=#38c34b|bg2=#38e04b|style=color:#fff;font-size:large;}}

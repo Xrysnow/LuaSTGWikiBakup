@@ -1,0 +1,19 @@
+*'''Anyone skilled is welcomed, feel free to create pages for your tutorials!'''
+
+If you need specific document, please refer to [[Functions|Editor Functions]], [[API Manual]] and [[Engine Feature List]].
+
+== Editor Tutorials ==
+You can find tutorials in which you make games with editors here.
+
+=== [[Chinese Tutorials|External Chinese Tutorials]] ===
+
+=== [[Ryann1908's Tutorials]] ===
+
+=== [[Tutorial:Editor_Sharp_Installation|Sharp Editor Installation Guide]] ===
+
+== Code Tutorials ==
+You can find tutorials in which you make games by writing codes here.
+
+=== [[Zino Coding Tutorial - Part 1]] ===
+</br>
+{{Navbox LTutorials}}

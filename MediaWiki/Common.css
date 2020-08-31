@@ -13,7 +13,8 @@ body.page-Main_Page div.mw-body {
     padding-top: 0 !important;
 }
 
-body.page-Main_Page div#content { margin-right: 5% !important; }
+/* body.page-Main_Page div#content { margin-right: 5% !important; } */
+div#content { margin-right: 0 !important; }
 
 .main-header-image {
     width:80% !important;

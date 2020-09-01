@@ -1,0 +1,8 @@
+<includeonly><!--
+--><div class="iframe" style="width: 646px; height: 190px;"><!--
+    -->[https://store.steampowered.com/widget/{{{1}}} Steam app {{{1}}}]<!--
+--></div><!--
+--></includeonly><!--
+--><noinclude>
+{{steamwidget|1365750}}
+</noinclude>

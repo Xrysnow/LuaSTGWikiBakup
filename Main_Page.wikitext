@@ -1,0 +1,65 @@
+<div><div style="max-width:1000px;margin: auto;">[[File:Wikifront.png|class=main-header-image]]</div></div>
+
+{{MainQuickNavbar}}
+{{MainTemplate
+| welcome = 
+| blurb = 
+| title_content = 
+| about_title = {{i18n|en=Welcome to '''{{SITENAME}}'''!|zh=欢迎来到'''{{SITENAME}}'''！}}
+| about_content =
+<br/>
+{{i18n
+|en=LuaSTG is a general name for a series of game engines. It is aimed at providing a engine for building [https://en.wikipedia.org/wiki/Shoot_%27em_up STG] games.
+LuaSTG has taken a place in STG developing through the joint efforts of the community with many wonderful works produced.
+You can explore contents related to LuaSTG here and help us on editing, translating and improving!
+|zh=LuaSTG是一系列游戏引擎的统称，以[https://zh.wikipedia.org/wiki/%E5%BD%88%E5%B9%95%E5%B0%84%E6%93%8A%E9%81%8A%E6%88%B2 弹幕射击游戏]的开发为设计目标。
+经过社区的共同努力，LuaSTG引擎已经在弹幕射击游戏的制作领域占据了一席之地，诞生出了多部优秀作品。
+您可以在这里查阅LuaSTG的相关内容以及帮助我们编辑、翻译和完善维基！
+}}
+
+{{i18n
+|en=If you need any help about this site, don't hesitate to contact the [[LuaSTG Wiki:Administrators|owners]].
+|zh=如果你需要网站相关的帮助，请联系[[LuaSTG Wiki:Administrators|管理员]]。
+}}
+[[Special:Statistics|'''{{int:statistics}}''']] {{!}} {{StatisticsText}}
+
+| featured_title = {{i18n|en=LuaSTG Engine/Editor|zh=LuaSTG引擎/编辑器}}
+| featured_content = 
+* [[LuaSTG (vanilla)|LuaSTG]]
+* [[LuaSTG Boost]]
+* [[LuaSTGPlus]]
+* [[LuaSTGExPlus]]
+* [[LuaSTG-x]]
+* [[LuaSTG Editor (legacy)]]
+* [[LuaSTG Editor Sharp]]
+* [[LuaSTG-x Editor]]
+| didyouknow_title = {{i18n|en=Featured Content|zh=特色内容}}
+| didyouknow_content =
+<youtube width="320" height="180">https://www.youtube.com/watch?v=TJgOj4R4-9M</youtube><br/>
+In this video, Ryann1908 explains more things regarding the engine and the editor, introducing more spell cards, lasers, defined bullets, boss backgrounds, and other useful features.
+
+| news_title = {{i18n|en=News|zh=新闻}}
+| news_content =
+* 2020-08-28 {{NewsRelease|[[东方栖霞园 ~ Blue devil in the Belvedere.]] Demo}}
+* 2020-08-10 {{NewsRelease|[[LuaSTG-x]] TP v8.0}}
+* 2020-05-28 {{NewsRelease|[[LuaSTG-x]] TP v7.1}}
+* 2020-04-16 {{NewsRelease|[[东方祈华梦 ～ Elegant Impermanence of Sakura.]]}}
+* 2020-03-21 {{NewsRelease|[[LuaSTGExPlus]] 0.82b}}
+* 2020-03-10 {{NewsRelease|[[LuaSTG-x]] TP v7.0}}
+* 2020-03-01 {{NewsRelease|[[LuaSTGExPlus]] 0.82a}}
+}}
+
+{| width="100%" cellspacing="0" cellpadding="0" style="background:transparent;"
+|-
+| width="100%" style="vertical-align:top; padding-left:0.5em;" |
+<h2 style="border:none; background-color:#669c1e; margin:0; font-size:125%; font-weight:bold; font-variant:small-caps;">
+[[Popular Works|<span style="color:#ffffff;">{{i18n|en=Popular Works|zh=优秀作品}}</span>]]</h2>
+
+<gallery>
+File:东方栖霞园 ~ Blue devil in the Belvedere._Cover.jpg|[[东方栖霞园 ~ Blue devil in the Belvedere.]]
+File:东方祈华梦 ～ Elegant Impermanence of Sakura._Cover.png|[[东方祈华梦 ～ Elegant Impermanence of Sakura.]]
+File:东方龙隐谈 ～ Chaos of Black Loong_Cover.jpg|[[东方龙隐谈 ～ Chaos of Black Loong]]
+File:东方宵海格 ～ the Unvisible Wing·搞事篇_Cover.png|[[东方宵海格 ～ the Unvisible Wing·搞事篇]]
+File:東方稀濳群 ～ Unstable and Unimaginable Power._Cover.png|[[東方稀濳群 ～ Unstable and Unimaginable Power.]]
+</gallery>
+|}

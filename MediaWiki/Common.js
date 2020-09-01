@@ -105,4 +105,25 @@ function SetSideBar() {
 
 SetSideBar();
 
+/* --------------------------------------------------------------------------------- */
+
+function SetIframe() {
+    var frames = document.body.getElementsByClassName("iframe");
+    for (var i = 0; i < frames.length; i++) {
+        var frame = frames[i];
+        var a = frame.getElementsByTagName("a")[0];
+        if (a != null) {
+            a.style = "display: none;";
+            var src = a.href;
+            var f = document.createElement("iframe");
+            f.src = src;
+            f.frameBorder = 0;
+            f.style = "width: 100%; height: 100%;";
+            frame.appendChild(f);
+        }
+    }
+}
+
+SetIframe();
+
 console.log("Common.js finished");

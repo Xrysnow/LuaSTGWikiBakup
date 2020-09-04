@@ -126,4 +126,21 @@ function SetIframe() {
 
 SetIframe();
 
+/* --------------------------------------------------------------------------------- */
+
+function SetJSButton() {
+    var arr = document.body.getElementsByClassName("js-btn");
+    for (var i = 0; i < arr.length; i++) {
+        var e = arr[i];
+        e.setAttribute("onclick", e.getAttribute("data-js"));
+        e.removeAttribute("data-js");
+        var a = e.getElementsByTagName("a")[0];
+        if (a != null) {
+            a.removeAttribute("href");
+        }
+    }
+}
+
+SetJSButton();
+
 console.log("Common.js finished");

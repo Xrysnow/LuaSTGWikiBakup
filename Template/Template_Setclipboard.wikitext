@@ -1,0 +1,15 @@
+<includeonly>{{button|http://en.luastg.shoutwiki.com|{{{1}}}|bg1={{{bg1|}}}|bg2={{{bg2|}}}|padding={{{padding|}}}|style={{{style|}}}|width={{{width|}}}|height={{{height|}}}|nocenter={{{nocenter|}}}
+|class=js-btn" data-js="var text = '{{{2}}}';
+var textarea = document.createElement('textarea');
+document.body.appendChild(textarea);
+textarea.value = text;
+textarea.select();
+document.execCommand('Copy');
+document.body.removeChild(textarea);
+}}</includeonly><noinclude>
+{{setclipboard|Set|Test Text}}
+{{setclipboard|Set|Test Text|padding=20px|style=color:#f00}}
+{{setclipboard|Set|Test Text|padding=16px 24px 16px 8px}}
+{{setclipboard|'''Set'''|Test Text|width=160px|height=80px|bg1=#f77|bg2=#7f7}}
+{{setclipboard|'''Set'''|Test Text|width=160px|height=80px|nocenter=1}}
+</noinclude>

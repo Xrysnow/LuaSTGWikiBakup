@@ -1,11 +1,10 @@
 <includeonly><!--
---><div class="button {{{class|}}}" style="background-color:{{#if:{{{bg2|}}}|{{{bg2}}}|#f2b040}};display: inline-block;"><!--
+--><div class="button {{{class|}}}" style="background-color:{{#if:{{{bg2|}}}|{{{bg2}}}|#447edd}};display: inline-block;"><!--
     -->[{{{1}}} <div style="{{#if:{{{width|}}}|width:{{{width}}};}}{{#if:{{{height|}}}|height:{{{height}}};}}{{#if:{{{nocenter|}}}|;|text-align:center;}}background-color:{{#if:{{{bg1|}}}|{{{bg1}}}|#ffffff}};padding:{{#if:{{{padding|}}}|{{{padding}}}|12px}};"><!--
         --><div style="{{#if:{{{style|}}}|{{{style}}};}}position: relative;top: 50%;{{#if:{{{height|}}}|transform: translateY(-50%);}}">{{{2|1}}}</div><!--
     --></div>]<!--
 --></div><!--
---></includeonly>
-<noinclude>
+--></includeonly><noinclude>
 {{button|http://en.luastg.shoutwiki.com|Wiki}}
 {{button|http://en.luastg.shoutwiki.com|Wiki|padding=20px|style=color:#f00}}
 {{button|http://en.luastg.shoutwiki.com|Wiki|padding=16px 24px 16px 8px}}
